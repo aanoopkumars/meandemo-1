@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+// also u can create using FormControl & FormGroup
 
 @Component({
   selector: 'app-signin',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninComponent implements OnInit {
 
-  constructor() { }
+  formGrp: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+
+   }
 
   ngOnInit() {
+    this.formGrp = this.fb.group({
+      'email': ['', [Validators.required, Validators.email] ],
+      'password': ['',  Validators.required ]
+    })
   }
 
+
+  onSubmission() {
+    console.log(this.formGrp.valid);
+  }
 }
