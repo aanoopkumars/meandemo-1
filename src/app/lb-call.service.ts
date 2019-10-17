@@ -73,4 +73,10 @@ export class LbCallService {
     return this.http.post('http://localhost:3000/api/Idev_user/signup',iuser)
 
    }
+  
+   loginIdevUser(iuser){
+    // console.log(iuser);
+    return this.http.post('http://localhost:3000/api/Idev_user/login',iuser)
+
+   }
 }

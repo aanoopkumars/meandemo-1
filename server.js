@@ -1,6 +1,11 @@
 const http = require('http');
 const app = require('./backEnd/app.js');
 const port = process.env.PORT;
+ const path = require('path');
+ const express = require('express');
+
+ app.use(express.static(__dirname+ '/dist/sampleAngApp'));
+ app.get('/*', (req, res)=> { res.sendFile(path.join(__dirname))});
 
 app.set('port',port);
 
