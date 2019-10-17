@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { LbCallService } from 'src/app/lb-call.service';
+import { Router } from '@angular/router';
+
+
 // also u can create using FormControl & FormGroup
 
 @Component({
@@ -11,7 +15,7 @@ export class SigninComponent implements OnInit {
 
   formGrp: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private serv: LbCallService,private router: Router) {
 
    }
 
@@ -24,6 +28,14 @@ export class SigninComponent implements OnInit {
 
 
   onSubmission() {
-    console.log(this.formGrp.valid);
+  //  console.log(this.formGrp.value);
+   this.serv.addIdevUsers(this.formGrp.value)
+   .subscribe((res)=>{
+    this.formGrp.reset();
+    this.router.navigate(['/login']);
+    console.log(res);
+  }) 
+
+
   }
 }
