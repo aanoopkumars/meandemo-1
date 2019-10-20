@@ -56,7 +56,7 @@ routr.post('/login', (req, res, next) => {
                               {expiresIn: 300})
 
        res
-       .cookie('idevCook',token, {expires: new Date(Date.now() + 900000), httpOnly: true})
+       .cookie('idevCook',token, {expires: new Date(Date.now() + 900), httpOnly: true})
        .status(200).json({
            message: 'user logged in'
        })                     
