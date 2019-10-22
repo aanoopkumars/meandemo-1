@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,14 @@ import { Subject } from 'rxjs';
 export class LbCallService {
   userArray = [];
   userChangeFound = new Subject();
+  userAuthenticated = new Subject<boolean>();
   constructor(private http: HttpClient) { }
+
+  getUserAuth() {
+    return this.userAuthenticated.asObservable();
+  }
+
+  
 
   getuser(ID) {
     return this.http.get(`http://localhost:3000/api/CBNUsers/${ID}`);
@@ -17,14 +25,15 @@ export class LbCallService {
   gettingUsers() {
      this.http.get<[]>('http://localhost:3000/api/Users')
      .subscribe((data) => {
-      
+      this.userAuthenticated.next(true);
       this.userArray = data;
-    // console.log('from Service');
-    // console.log(this.userArray);
      this.userChangeFound.next([...this.userArray])
-     }) 
+     },(err)=> {
+       alert('Sorry, U are not authenticated. Please login again');
+
+     })
      
-    
+
     }
 
   subscribeTouserChanges() {
@@ -79,4 +88,13 @@ export class LbCallService {
     return this.http.post('http://localhost:3000/api/Idev_user/login',iuser)
 
    }
+
+   logoutIdevUser() {
+    return this.http.get('http://localhost:3000/api/Idev_user/logout')
+    .pipe(
+      map((res)=>{
+        this.userAuthenticated.next(false);
+      })
+    )
+  }
 }

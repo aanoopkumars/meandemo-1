@@ -8,7 +8,7 @@ const AppuserRoutes = require('./routes/Users');
 const IdevuserRoutes = require('./routes/Idevuser');
 
 const app = express();
-Mongoose.connect('mongodb+srv://Anoop:POnSgCHbiaaDRuqI@cluster0-dc1ia.mongodb.net/Roles?retryWrites=true&w=majority',
+Mongoose.connect('mongodb://Anoop:nTomnAYNlNx0NpM4@meantest-shard-00-00-dc1ia.mongodb.net:27017,meantest-shard-00-01-dc1ia.mongodb.net:27017,meantest-shard-00-02-dc1ia.mongodb.net:27017/test?ssl=true&replicaSet=MeanTest-shard-0&authSource=admin&retryWrites=true&w=majority',
 { useNewUrlParser: true,  useUnifiedTopology: true })
 .then(()=>{
     console.log('Connected to Mongo db');

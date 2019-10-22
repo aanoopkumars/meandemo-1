@@ -23,7 +23,7 @@
 
   /***/
   function node_modulesAngularDevkitBuildAngularSrcAngularCliFilesPluginsRawCssLoaderJsNode_modulesPostcssLoaderSrcIndexJsSrcStylesCss(module, exports) {
-    module.exports = [[module.i, "/* You can add global styles to this file, and also import other style files */\nbody { \n    /* background-color: #F1D4D4!important; */\n    background-color: #fdecff!important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9zdHlsZXMuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDhFQUE4RTtBQUM5RTtJQUNJLHlDQUF5QztJQUN6QyxtQ0FBbUM7QUFDdkMiLCJmaWxlIjoic3JjL3N0eWxlcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBZb3UgY2FuIGFkZCBnbG9iYWwgc3R5bGVzIHRvIHRoaXMgZmlsZSwgYW5kIGFsc28gaW1wb3J0IG90aGVyIHN0eWxlIGZpbGVzICovXG5ib2R5IHsgXG4gICAgLyogYmFja2dyb3VuZC1jb2xvcjogI0YxRDRENCFpbXBvcnRhbnQ7ICovXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZkZWNmZiFpbXBvcnRhbnQ7XG59Il19 */", '', '']];
+    module.exports = [[module.i, "/* You can add global styles to this file, and also import other style files */\r\nbody { \r\n    /* background-color: #F1D4D4!important; */\r\n    background-color: #fdecff!important;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9zdHlsZXMuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLDhFQUE4RTtBQUM5RTtJQUNJLHlDQUF5QztJQUN6QyxtQ0FBbUM7QUFDdkMiLCJmaWxlIjoic3JjL3N0eWxlcy5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBZb3UgY2FuIGFkZCBnbG9iYWwgc3R5bGVzIHRvIHRoaXMgZmlsZSwgYW5kIGFsc28gaW1wb3J0IG90aGVyIHN0eWxlIGZpbGVzICovXHJcbmJvZHkgeyBcclxuICAgIC8qIGJhY2tncm91bmQtY29sb3I6ICNGMUQ0RDQhaW1wb3J0YW50OyAqL1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogI2ZkZWNmZiFpbXBvcnRhbnQ7XHJcbn0iXX0= */", '', '']];
     /***/
   },
 
@@ -400,11 +400,11 @@
   /***/
   function _(module, exports, __webpack_require__) {
     __webpack_require__(
-    /*! C:\Users\Anoopkumars\Desktop\Projects\jwt\sampleMEAN\src\styles.css */
+    /*! C:\Users\Anoopkumars\Desktop\Projects\jwt\sampleMEAN\meandemo-1\src\styles.css */
     "./src/styles.css");
 
     module.exports = __webpack_require__(
-    /*! C:\Users\Anoopkumars\Desktop\Projects\jwt\sampleMEAN\node_modules\bootstrap\dist\css\bootstrap.min.css */
+    /*! C:\Users\Anoopkumars\Desktop\Projects\jwt\sampleMEAN\meandemo-1\node_modules\bootstrap\dist\css\bootstrap.min.css */
     "./node_modules/bootstrap/dist/css/bootstrap.min.css");
     /***/
   }

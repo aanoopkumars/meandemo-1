@@ -1,6 +1,8 @@
 const express = require('express');
 const MongoUser = require('../dbModels/User');
 
+const authMiddleware = require('../middlewares/check-auth')
+
 const routr = express.Router();
 
 routr.post('',(req, res, next) => {
@@ -20,7 +22,7 @@ routr.post('',(req, res, next) => {
       res.status(200).json({'Message':'User added'});
   })
   
-routr.get('',(req, res, next) => {
+routr.get('', authMiddleware,(req, res, next) => {
      MongoUser.find((err, response)=> {
         if(err){
             console.log('sorry, some error during fetching users from mongo(app.js)');

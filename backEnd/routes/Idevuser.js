@@ -53,10 +53,10 @@ routr.post('/login', (req, res, next) => {
 
       const token =  jwt.sign({email: user1.email, uderId: user1._id},
                               'This_Is_my_SecretKey',
-                              {expiresIn: 300})
+                              {expiresIn: 60000})
 
        res
-       .cookie('idevCook',token, {expires: new Date(Date.now() + 900), httpOnly: true})
+       .cookie('idevCook',token, {expires: new Date(Date.now() + 90000), httpOnly: true})
        .status(200).json({
            message: 'user logged in'
        })                     
@@ -68,6 +68,14 @@ routr.post('/login', (req, res, next) => {
     })
 
 
+})
+
+routr.get('/logout', (req, res, next) => {
+    let cook = req.cookies.idevCook;
+    res.clearCookie('idevCook');
+    res.status(200).json({
+        message: 'User is sussefully Logged OUT!'
+    })
 })
 
 module.exports = routr;

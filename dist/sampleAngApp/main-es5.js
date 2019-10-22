@@ -59,7 +59,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<app-nav-bar></app-nav-bar>\n<router-outlet></router-outlet>\n\n";
+    __webpack_exports__["default"] = "<app-nav-bar></app-nav-bar>\r\n<router-outlet></router-outlet>\r\n\r\n";
     /***/
   },
 
@@ -79,7 +79,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"authContainer\">\n  <h3>Log In</h3>\n  <hr>\n  <form [formGroup]=\"formGrp\" (submit)=\"onSubmission()\" >\n      <div class=\"form-group\">\n        <label for=\"email\">Email address</label>\n        <input type=\"email\" class=\"form-control\" id=\"email\"  placeholder=\"Enter email\"\n         formControlName=\"email\"\n        >\n        <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n      </div>\n      <div class=\"form-group\">\n        <label for=\"password\">Password</label>\n        <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\"\n        formControlName=\"password\"\n        >\n      </div>\n     \n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!formGrp.valid\">Sign In</button>\n    </form>\n</div>\n\n";
+    __webpack_exports__["default"] = "<div class=\"authContainer\">\r\n  <h3>Log In</h3>\r\n  <hr>\r\n  <form [formGroup]=\"formGrp\" (submit)=\"onSubmission()\" >\r\n      <div class=\"form-group\">\r\n        <label for=\"email\">Email address</label>\r\n        <input type=\"email\" class=\"form-control\" id=\"email\"  placeholder=\"Enter email\"\r\n         formControlName=\"email\"\r\n        >\r\n        <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"password\">Password</label>\r\n        <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\"\r\n        formControlName=\"password\"\r\n        >\r\n      </div>\r\n     \r\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!formGrp.valid\">Sign In</button>\r\n    </form>\r\n</div>\r\n\r\n";
     /***/
   },
 
@@ -99,7 +99,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"authContainer\">\n    <h3>Sign In</h3>\n    <hr>\n    <form [formGroup]=\"formGrp\" (submit)=\"onSubmission()\" >\n        <div class=\"form-group\">\n          <label for=\"email\">Email address</label>\n          <input type=\"email\" class=\"form-control\" id=\"email\"  placeholder=\"Enter email\"\n           formControlName=\"email\"\n          >\n          <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"password\">Password</label>\n          <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\"\n          formControlName=\"password\"\n          >\n        </div>\n       \n        <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!formGrp.valid\">Sign In</button>\n      </form>\n</div>\n\n";
+    __webpack_exports__["default"] = "<div class=\"authContainer\">\r\n    <h3>Sign In</h3>\r\n    <hr>\r\n    <form [formGroup]=\"formGrp\" (submit)=\"onSubmission()\" >\r\n        <div class=\"form-group\">\r\n          <label for=\"email\">Email address</label>\r\n          <input type=\"email\" class=\"form-control\" id=\"email\"  placeholder=\"Enter email\"\r\n           formControlName=\"email\"\r\n          >\r\n          <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <label for=\"password\">Password</label>\r\n          <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\"\r\n          formControlName=\"password\"\r\n          >\r\n        </div>\r\n       \r\n        <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!formGrp.valid\">Sign In</button>\r\n      </form>\r\n</div>\r\n\r\n";
     /***/
   },
 
@@ -119,7 +119,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<form  #f=\"ngForm\" (submit)=\"mode == 'edit' ? updateUser(f) : regUsers(f)\">\n    <h2 class=\"formHead\">USER Management</h2>\n    \n    <div class=\"container\">\n        <hr>\n    <div class=\"form-row\">\n        <div class=\"form-group col-md-6\">\n            <label >Name</label>\n            <input type=\"text\" class=\"form-control\" name=\"userName\" required ngModel [(ngModel)]=\"userN\">\n          </div>\n  \n      <div class=\"form-group col-md-6\">\n        <label>Email</label>\n        <input type=\"email\" class=\"form-control\" name=\"email\" ngModel placeholder=\"Email\" required ngModel [(ngModel)]=\"userE\">\n      </div>\n      \n    </div>\n  \n    <div class=\"form-row\">\n  \n        <div class=\"form-group col-md-6\">\n            <label >Role</label>\n            <select name=\"role\" class=\"form-control\" ngModel required ngModel [(ngModel)]=\"userR\">\n              <option selected>select any role</option>\n              <option>CBN Admin</option>\n              <option>DSO</option>\n            </select>\n          </div>\n      \n      <div class=\"form-group col-md-6\">\n        <label >Application</label>\n        <select name=\"appName\" class=\"form-control\" ngModel required ngModel [(ngModel)]=\"userA\">\n          <option selected>Choose...</option>\n          <option>VTS CUP</option>\n          <option>DNSO</option>\n          <option>Portal X</option>\n        </select>\n      </div>\n  \n  \n    </div>\n  \n    <button *ngIf= \"mode !='edit'\" type=\"submit\" class=\"btn btn-primary registerBtn\" [disabled]=\"!f.valid\">Register user</button>\n    <button *ngIf= \"mode =='edit'\" type=\"submit\" class=\"btn btn-primary registerBtn\" [disabled]=\"!f.valid\">Edit user</button>\n    <button *ngIf= \"mode =='edit'\" type=\"button\" class=\"btn btn-primary cancelbtn\" (click)=\"f.reset();mode='reg'\" >cancel</button>\n  </div>\n  </form>\n  \n  <div class=\"container\">\n  \n      <p *ngIf= \"usersArr.length == 0\">No users found...please add</p>\n      <table class=\"table table-striped\" *ngIf= \"usersArr.length != 0\">\n          <thead>\n            <tr>\n              <th scope=\"col\">#</th>\n              <th scope=\"col\">Name</th>\n              <th scope=\"col\">Email</th>\n              <th scope=\"col\">Application</th>\n              <th scope=\"col\">Role</th>\n              <th></th>\n              <th></th>\n            </tr>\n          </thead>\n          <tbody>\n            <tr *ngFor=\"let i of usersArr; index as j\">\n              <th scope=\"row\">{{j+1}}</th>\n              <td>{{i.userName}}</td>\n              <td>{{i.mailID}}</td>\n              <td>{{i.aplicationName}}</td>\n              <td>{{i.role}}</td>\n              <td><button class=\"btn btn-primary\" (click)=\"editUser(i.id)\">Edit</button></td>\n              <td><button class=\"btn btn-danger\" (click)=\"deleteUser(i.id)\">delete</button></td>\n            </tr>\n            \n          </tbody>\n        </table>\n  \n  </div>\n";
+    __webpack_exports__["default"] = "<form  #f=\"ngForm\" (submit)=\"mode == 'edit' ? updateUser(f) : regUsers(f)\">\r\n    <h2 class=\"formHead\">USER Management</h2>\r\n    \r\n    <div class=\"container\">\r\n        <hr>\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\">\r\n            <label >Name</label>\r\n            <input type=\"text\" class=\"form-control\" name=\"userName\" required ngModel [(ngModel)]=\"userN\">\r\n          </div>\r\n  \r\n      <div class=\"form-group col-md-6\">\r\n        <label>Email</label>\r\n        <input type=\"email\" class=\"form-control\" name=\"email\" ngModel placeholder=\"Email\" required ngModel [(ngModel)]=\"userE\">\r\n      </div>\r\n      \r\n    </div>\r\n  \r\n    <div class=\"form-row\">\r\n  \r\n        <div class=\"form-group col-md-6\">\r\n            <label >Role</label>\r\n            <select name=\"role\" class=\"form-control\" ngModel required ngModel [(ngModel)]=\"userR\">\r\n              <option selected>select any role</option>\r\n              <option>CBN Admin</option>\r\n              <option>DSO</option>\r\n            </select>\r\n          </div>\r\n      \r\n      <div class=\"form-group col-md-6\">\r\n        <label >Application</label>\r\n        <select name=\"appName\" class=\"form-control\" ngModel required ngModel [(ngModel)]=\"userA\">\r\n          <option selected>Choose...</option>\r\n          <option>VTS CUP</option>\r\n          <option>DNSO</option>\r\n          <option>Portal X</option>\r\n        </select>\r\n      </div>\r\n  \r\n  \r\n    </div>\r\n  \r\n    <button *ngIf= \"mode !='edit'\" type=\"submit\" class=\"btn btn-primary registerBtn\" [disabled]=\"!f.valid\">Register user</button>\r\n    <button *ngIf= \"mode =='edit'\" type=\"submit\" class=\"btn btn-primary registerBtn\" [disabled]=\"!f.valid\">Edit user</button>\r\n    <button *ngIf= \"mode =='edit'\" type=\"button\" class=\"btn btn-primary cancelbtn\" (click)=\"f.reset();mode='reg'\" >cancel</button>\r\n  </div>\r\n  </form>\r\n  \r\n  <div class=\"container\">\r\n  \r\n      <p *ngIf= \"usersArr.length == 0\">No users found...please add</p>\r\n      <table class=\"table table-striped\" *ngIf= \"usersArr.length != 0\">\r\n          <thead>\r\n            <tr>\r\n              <th scope=\"col\">#</th>\r\n              <th scope=\"col\">Name</th>\r\n              <th scope=\"col\">Email</th>\r\n              <th scope=\"col\">Application</th>\r\n              <th scope=\"col\">Role</th>\r\n              <th></th>\r\n              <th></th>\r\n            </tr>\r\n          </thead>\r\n          <tbody>\r\n            <tr *ngFor=\"let i of usersArr; index as j\">\r\n              <th scope=\"row\">{{j+1}}</th>\r\n              <td>{{i.userName}}</td>\r\n              <td>{{i.mailID}}</td>\r\n              <td>{{i.aplicationName}}</td>\r\n              <td>{{i.role}}</td>\r\n              <td><button class=\"btn btn-primary\" (click)=\"editUser(i.id)\">Edit</button></td>\r\n              <td><button class=\"btn btn-danger\" (click)=\"deleteUser(i.id)\">delete</button></td>\r\n            </tr>\r\n            \r\n          </tbody>\r\n        </table>\r\n  \r\n  </div>\r\n";
     /***/
   },
 
@@ -139,7 +139,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm\">\n    <h5 class=\"my-0 mr-md-auto font-weight-normal\">IDevelop❤</h5>\n    <nav class=\"my-2 my-md-0 mr-md-3\">\n      <!-- <a class=\"p-2 text-dark\" href=\"#\">Features</a>\n      <a class=\"p-2 text-dark\" href=\"#\">Enterprise</a> -->\n      <a class=\"p-2 text-dark\" href=\"#\">Contact</a>\n      <a class=\"p-2 text-dark\" href=\"#\">About us!</a>\n    </nav>\n    <a class=\"btn btn-outline-primary auth\" href=\"#\" [routerLink]=\"['/']\">Home</a>\n    <a class=\"btn btn-outline-primary auth\" href=\"#\" [routerLink]=\"['/login']\">Login</a>\n    <a class=\"btn btn-outline-primary auth\" href=\"#\" [routerLink]=\"['/signin']\">Sign up</a>\n  </div>\n";
+    __webpack_exports__["default"] = "<div class=\"d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm\">\r\n    <h5 class=\"my-0 mr-md-auto font-weight-normal\">IDevelop❤</h5>\r\n    <nav class=\"my-2 my-md-0 mr-md-3\">\r\n      <!-- <a class=\"p-2 text-dark\" href=\"#\">Features</a>\r\n      <a class=\"p-2 text-dark\" href=\"#\">Enterprise</a> -->\r\n      <a class=\"p-2 text-dark\" href=\"#\">Contact</a>\r\n      <a class=\"p-2 text-dark\" href=\"#\">About us!</a>\r\n    </nav>\r\n    <a *ngIf=\"isUserAuthenticated\" class=\"btn btn-outline-primary auth\" href=\"#\" [routerLink]=\"['/']\">Home</a>\r\n    <a *ngIf=\"isUserAuthenticated\" class=\"btn btn-outline-primary auth\" href=\"#\" (click)=\"userLogout()\">Logout</a>\r\n    <a *ngIf=\"!isUserAuthenticated\" class=\"btn btn-outline-primary auth\" href=\"#\" [routerLink]=\"['/login']\">Login</a>\r\n    <a *ngIf=\"!isUserAuthenticated\" class=\"btn btn-outline-primary auth\" href=\"#\" [routerLink]=\"['/signin']\">Sign up</a>\r\n  </div>\r\n";
     /***/
   },
 
@@ -1402,6 +1402,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! rxjs */
     "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
 
     var LbCallService =
     /*#__PURE__*/
@@ -1412,9 +1418,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.http = http;
         this.userArray = [];
         this.userChangeFound = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.userAuthenticated = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
       }
 
       _createClass(LbCallService, [{
+        key: "getUserAuth",
+        value: function getUserAuth() {
+          return this.userAuthenticated.asObservable();
+        }
+      }, {
         key: "getuser",
         value: function getuser(ID) {
           return this.http.get("http://localhost:3000/api/CBNUsers/".concat(ID));
@@ -1425,10 +1437,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var _this5 = this;
 
           this.http.get('http://localhost:3000/api/Users').subscribe(function (data) {
-            _this5.userArray = data; // console.log('from Service');
-            // console.log(this.userArray);
+            _this5.userAuthenticated.next(true);
+
+            _this5.userArray = data;
 
             _this5.userChangeFound.next(_toConsumableArray(_this5.userArray));
+          }, function (err) {
+            alert('Sorry, U are not authenticated. Please login again');
           });
         }
       }, {
@@ -1488,6 +1503,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function loginIdevUser(iuser) {
           // console.log(iuser);
           return this.http.post('http://localhost:3000/api/Idev_user/login', iuser);
+        }
+      }, {
+        key: "logoutIdevUser",
+        value: function logoutIdevUser() {
+          var _this9 = this;
+
+          return this.http.get('http://localhost:3000/api/Idev_user/logout').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (res) {
+            _this9.userAuthenticated.next(false);
+          }));
         }
       }]);
 
@@ -1557,21 +1581,60 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
     /*! @angular/core */
     "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _lb_call_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../lb-call.service */
+    "./src/app/lb-call.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var NavBarComponent =
     /*#__PURE__*/
     function () {
-      function NavBarComponent() {
+      function NavBarComponent(angService, routr) {
         _classCallCheck(this, NavBarComponent);
+
+        this.angService = angService;
+        this.routr = routr;
+        this.isUserAuthenticated = false;
       }
 
       _createClass(NavBarComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this10 = this;
+
+          this.angService.getUserAuth().subscribe(function (auth) {
+            _this10.isUserAuthenticated = auth;
+          });
+        }
+      }, {
+        key: "userLogout",
+        value: function userLogout() {
+          var _this11 = this;
+
+          this.angService.logoutIdevUser().subscribe(function (data) {
+            _this11.routr.navigate(['/login']);
+          });
+        }
       }]);
 
       return NavBarComponent;
     }();
+
+    NavBarComponent.ctorParameters = function () {
+      return [{
+        type: _lb_call_service__WEBPACK_IMPORTED_MODULE_2__["LbCallService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+      }];
+    };
 
     NavBarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-nav-bar',
@@ -1694,7 +1757,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   /***/
   function _(module, exports, __webpack_require__) {
     module.exports = __webpack_require__(
-    /*! C:\Users\Anoopkumars\Desktop\Projects\jwt\sampleMEAN\src\main.ts */
+    /*! C:\Users\Anoopkumars\Desktop\Projects\jwt\sampleMEAN\meandemo-1\src\main.ts */
     "./src/main.ts");
     /***/
   }
