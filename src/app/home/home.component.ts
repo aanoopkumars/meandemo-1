@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 import { user } from '../models/userModel';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   userI ;
   usersArr = [];
   subSub: Subscription
-  constructor(private lbService: LbCallService) {
+  constructor(private lbService: LbCallService, private rtr: Router) {
     this.subSub = this.lbService.subscribeTouserChanges().subscribe((usrs: user[]) => {
       this.usersArr = usrs;
    //  console.log('Inside subscription');
@@ -32,7 +33,16 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
   //  console.log('on init')
-   this.lbService.gettingUsers();
+   this.lbService.gettingUsers()
+   .subscribe((rs) => {
+
+   },(err)=> {
+     if(err.status==401){
+       alert('Please login!')
+       this.rtr.navigate(['/login']);
+     }
+     
+   })
 
   }
 

@@ -342,7 +342,8 @@ __webpack_require__.r(__webpack_exports__);
 const routes = [
     { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"] },
     { path: 'login', component: _auth_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
-    { path: 'signin', component: _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_4__["SigninComponent"] }
+    { path: 'signin', component: _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_4__["SigninComponent"] },
+    { path: '**', redirectTo: 'login' }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };
@@ -628,12 +629,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _lb_call_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lb-call.service */ "./src/app/lb-call.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
 
 
 
 let HomeComponent = class HomeComponent {
-    constructor(lbService) {
+    constructor(lbService, rtr) {
         this.lbService = lbService;
+        this.rtr = rtr;
         this.title = 'sampleApp';
         this.mode = '';
         this.userN = '';
@@ -649,7 +653,14 @@ let HomeComponent = class HomeComponent {
     }
     ngOnInit() {
         //  console.log('on init')
-        this.lbService.gettingUsers();
+        this.lbService.gettingUsers()
+            .subscribe((rs) => {
+        }, (err) => {
+            if (err.status == 401) {
+                alert('Please login!');
+                this.rtr.navigate(['/login']);
+            }
+        });
     }
     regUsers(frm) {
         this.mode = 'reg';
@@ -685,7 +696,8 @@ let HomeComponent = class HomeComponent {
     }
 };
 HomeComponent.ctorParameters = () => [
-    { type: _lb_call_service__WEBPACK_IMPORTED_MODULE_2__["LbCallService"] }
+    { type: _lb_call_service__WEBPACK_IMPORTED_MODULE_2__["LbCallService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
 ];
 HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -733,14 +745,12 @@ let LbCallService = class LbCallService {
         return this.http.get(`http://localhost:3000/api/CBNUsers/${ID}`);
     }
     gettingUsers() {
-        this.http.get('http://localhost:3000/api/Users')
-            .subscribe((data) => {
+        return this.http.get('http://localhost:3000/api/Users')
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])((itm) => {
             this.userAuthenticated.next(true);
-            this.userArray = data;
+            this.userArray = itm;
             this.userChangeFound.next([...this.userArray]);
-        }, (err) => {
-            alert('Sorry, U are not authenticated. Please login again');
-        });
+        }));
     }
     subscribeTouserChanges() {
         return this.userChangeFound.asObservable();

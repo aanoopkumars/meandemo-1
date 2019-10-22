@@ -5,10 +5,12 @@ const port = process.env.PORT;
  const express = require('express');
 
  app.use(express.static(__dirname+ '/dist/sampleAngApp'));
- app.get('/*', (req, res)=> { res.sendFile(path.join(__dirname))});
 
 app.set('port',port);
-
+app.get('*', (req, res)=> { 
+    
+    res.sendFile(path.join(__dirname, '/dist/sampleAngApp/index.html'))}
+    );
 // const server = http.createServer((req, res) => {
 
 //     res.end('<h1>Hello world</h1>')

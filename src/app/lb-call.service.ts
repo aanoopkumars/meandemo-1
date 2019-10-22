@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
-import { map } from 'rxjs/operators'
+import { map, tap } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -23,17 +23,15 @@ export class LbCallService {
   }
 
   gettingUsers() {
-     this.http.get<[]>('http://localhost:3000/api/Users')
-     .subscribe((data) => {
-      this.userAuthenticated.next(true);
-      this.userArray = data;
-     this.userChangeFound.next([...this.userArray])
-     },(err)=> {
-       alert('Sorry, U are not authenticated. Please login again');
-
-     })
+    return this.http.get<[]>('http://localhost:3000/api/Users')
+     .pipe(
+       tap((itm)=> {
+        this.userAuthenticated.next(true);
+        this.userArray = itm;
+        this.userChangeFound.next([...this.userArray]);
+       })
+     )
      
-
     }
 
   subscribeTouserChanges() {

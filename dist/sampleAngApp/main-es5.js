@@ -766,6 +766,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, {
       path: 'signin',
       component: _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_4__["SigninComponent"]
+    }, {
+      path: '**',
+      redirectTo: 'login'
     }];
 
     var AppRoutingModule = function AppRoutingModule() {
@@ -1264,16 +1267,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _lb_call_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! ../lb-call.service */
     "./src/app/lb-call.service.ts");
+    /* harmony import */
+
+
+    var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! @angular/router */
+    "./node_modules/@angular/router/fesm2015/router.js");
 
     var HomeComponent =
     /*#__PURE__*/
     function () {
-      function HomeComponent(lbService) {
+      function HomeComponent(lbService, rtr) {
         var _this3 = this;
 
         _classCallCheck(this, HomeComponent);
 
         this.lbService = lbService;
+        this.rtr = rtr;
         this.title = 'sampleApp';
         this.mode = '';
         this.userN = '';
@@ -1290,8 +1300,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(HomeComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
+          var _this4 = this;
+
           //  console.log('on init')
-          this.lbService.gettingUsers();
+          this.lbService.gettingUsers().subscribe(function (rs) {}, function (err) {
+            if (err.status == 401) {
+              alert('Please login!');
+
+              _this4.rtr.navigate(['/login']);
+            }
+          });
         }
       }, {
         key: "regUsers",
@@ -1320,15 +1338,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "editUser",
         value: function editUser(ID) {
-          var _this4 = this;
+          var _this5 = this;
 
           this.mode = 'edit';
           this.lbService.getuser(ID).subscribe(function (editres) {
-            _this4.userN = editres.userName;
-            _this4.userE = editres.mailID;
-            _this4.userR = editres.role;
-            _this4.userA = editres.aplicationName;
-            _this4.userI = editres.id;
+            _this5.userN = editres.userName;
+            _this5.userE = editres.mailID;
+            _this5.userR = editres.role;
+            _this5.userA = editres.aplicationName;
+            _this5.userI = editres.id;
           });
         }
       }, {
@@ -1344,6 +1362,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     HomeComponent.ctorParameters = function () {
       return [{
         type: _lb_call_service__WEBPACK_IMPORTED_MODULE_2__["LbCallService"]
+      }, {
+        type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
       }];
     };
 
@@ -1434,17 +1454,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "gettingUsers",
         value: function gettingUsers() {
-          var _this5 = this;
+          var _this6 = this;
 
-          this.http.get('http://localhost:3000/api/Users').subscribe(function (data) {
-            _this5.userAuthenticated.next(true);
+          return this.http.get('http://localhost:3000/api/Users').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (itm) {
+            _this6.userAuthenticated.next(true);
 
-            _this5.userArray = data;
+            _this6.userArray = itm;
 
-            _this5.userChangeFound.next(_toConsumableArray(_this5.userArray));
-          }, function (err) {
-            alert('Sorry, U are not authenticated. Please login again');
-          });
+            _this6.userChangeFound.next(_toConsumableArray(_this6.userArray));
+          }));
         }
       }, {
         key: "subscribeTouserChanges",
@@ -1454,7 +1472,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addUser",
         value: function addUser(user) {
-          var _this6 = this;
+          var _this7 = this;
 
           var usr = {
             "mailID": user.email,
@@ -1464,13 +1482,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           };
           return this.http.post('http://localhost:3000/api/Users', usr).subscribe(function (res) {
             //  console.log('User Added');
-            _this6.gettingUsers();
+            _this7.gettingUsers();
           });
         }
       }, {
         key: "editUser",
         value: function editUser(user, id) {
-          var _this7 = this;
+          var _this8 = this;
 
           var usr = {
             "mailID": user.email,
@@ -1479,16 +1497,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             "userName": user.userName
           };
           return this.http.patch("http://localhost:3000/api/CBNUsers/".concat(id), usr).subscribe(function (res) {
-            _this7.gettingUsers();
+            _this8.gettingUsers();
           });
         }
       }, {
         key: "DeleteUser",
         value: function DeleteUser(id) {
-          var _this8 = this;
+          var _this9 = this;
 
           this.http.delete("http://localhost:3000/api/CBNUsers/".concat(id)).subscribe(function (delRes) {
-            _this8.gettingUsers();
+            _this9.gettingUsers();
           });
         } // for IdevUsers
 
@@ -1507,10 +1525,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "logoutIdevUser",
         value: function logoutIdevUser() {
-          var _this9 = this;
+          var _this10 = this;
 
           return this.http.get('http://localhost:3000/api/Idev_user/logout').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (res) {
-            _this9.userAuthenticated.next(false);
+            _this10.userAuthenticated.next(false);
           }));
         }
       }]);
@@ -1608,19 +1626,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(NavBarComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this10 = this;
+          var _this11 = this;
 
           this.angService.getUserAuth().subscribe(function (auth) {
-            _this10.isUserAuthenticated = auth;
+            _this11.isUserAuthenticated = auth;
           });
         }
       }, {
         key: "userLogout",
         value: function userLogout() {
-          var _this11 = this;
+          var _this12 = this;
 
           this.angService.logoutIdevUser().subscribe(function (data) {
-            _this11.routr.navigate(['/login']);
+            _this12.routr.navigate(['/login']);
           });
         }
       }]);
