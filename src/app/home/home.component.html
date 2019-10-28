@@ -44,6 +44,7 @@
     <button *ngIf= "mode =='edit'" type="submit" class="btn btn-primary registerBtn" [disabled]="!f.valid">Edit user</button>
     <button *ngIf= "mode =='edit'" type="button" class="btn btn-primary cancelbtn" (click)="f.reset();mode='reg'" >cancel</button>
   </div>
+  <app-file-upoader></app-file-upoader>
   </form>
   
   <div class="container">

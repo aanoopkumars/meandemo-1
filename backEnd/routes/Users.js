@@ -5,7 +5,7 @@ const authMiddleware = require('../middlewares/check-auth')
 
 const routr = express.Router();
 
-routr.post('',(req, res, next) => {
+routr.post('', authMiddleware,(req, res, next) => {
     //  addedUser = req.body;
      addedUser = new MongoUser({
       userName: req.body.userName,

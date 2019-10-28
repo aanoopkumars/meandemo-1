@@ -33,6 +33,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
   //  console.log('on init')
+  /*
    this.lbService.gettingUsers()
    .subscribe((rs) => {
 
@@ -43,6 +44,7 @@ export class HomeComponent implements OnInit, OnDestroy {
      }
      
    })
+   */
 
   }
 

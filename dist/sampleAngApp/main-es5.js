@@ -756,13 +756,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _home_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! ./home/home.component */
     "./src/app/home/home.component.ts");
+    /* harmony import */
+
+
+    var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./auth/auth.guard */
+    "./src/app/auth/auth.guard.ts");
 
     var routes = [{
       path: '',
       component: _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"]
     }, {
       path: 'login',
-      component: _auth_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"]
+      component: _auth_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"],
+      canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["authGuard"]]
     }, {
       path: 'signin',
       component: _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_4__["SigninComponent"]
@@ -935,6 +942,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _home_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ./home/home.component */
     "./src/app/home/home.component.ts");
+    /* harmony import */
+
+
+    var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    /*! ./auth/auth.guard */
+    "./src/app/auth/auth.guard.ts");
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
@@ -943,10 +956,58 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
       declarations: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"], _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_7__["NavBarComponent"], _auth_login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"], _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_9__["SigninComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"]],
       imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"]],
-      providers: [],
+      providers: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__["authGuard"]],
       bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
     })], AppModule);
     /***/
+  },
+
+  /***/
+  "./src/app/auth/auth.guard.ts":
+  /*!************************************!*\
+    !*** ./src/app/auth/auth.guard.ts ***!
+    \************************************/
+
+  /*! exports provided: authGuard */
+
+  /***/
+  function srcAppAuthAuthGuardTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "authGuard", function () {
+      return authGuard;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js"); // @Injectable({providedIn: "root"})
+
+
+    var authGuard =
+    /*#__PURE__*/
+    function () {
+      function authGuard() {
+        _classCallCheck(this, authGuard);
+      }
+
+      _createClass(authGuard, [{
+        key: "canActivate",
+        value: function canActivate(route, state) {
+          console.log('In routGuard');
+          return true;
+        }
+      }]);
+
+      return authGuard;
+    }();
+    /***/
+
   },
 
   /***/
