@@ -13,6 +13,7 @@ import { SigninComponent } from './auth/signin/signin.component';
 import { HomeComponent } from './home/home.component';
 import { FileUpoaderComponent } from './file-upoader/file-upoader.component';
 import { FileUploadService } from './file-upload.service';
+import { FileUploader2Component } from './file-uploader2/file-uploader2.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FileUploadService } from './file-upload.service';
     HomeComponent,
     FileUpoaderComponent,
     FileSelectDirective,
-    FileDropDirective
+    FileDropDirective,
+    FileUploader2Component
   ],
   imports: [
     BrowserModule,

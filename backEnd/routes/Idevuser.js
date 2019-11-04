@@ -33,6 +33,7 @@ routr.post('/signup',(req, res, next) => {
 })
 
 routr.post('/login', (req, res, next) => {
+    console.log('INNNNNN login');
    idevUser.findOne({email: req.body.email})
    .then((user) => {
       if(!user){
