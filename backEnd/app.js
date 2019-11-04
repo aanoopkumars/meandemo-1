@@ -15,7 +15,24 @@ const AppuserRoutes = require('./routes/Users');
 const IdevuserRoutes = require('./routes/Idevuser');
 
 const app = express();
+
+Mongoose.connect('mongodb://Anoop:nTomnAYNlNx0NpM4@meantest-shard-00-00-dc1ia.mongodb.net:27017,meantest-shard-00-01-dc1ia.mongodb.net:27017,meantest-shard-00-02-dc1ia.mongodb.net:27017/test?ssl=true&replicaSet=MeanTest-shard-0&authSource=admin&retryWrites=true&w=majority',
+{ useNewUrlParser: true,  useUnifiedTopology: true })
+.then(()=>{
+    console.log('Connected to Mongo db');
+  //  console.dir(Mongoose.connections[0].db)
+
+    gfs = Grid(Mongoose.connections[0].db, Mongoose.mongo)
+    gfs.collection('uploads');
+})
+.catch((err)=> {
+   console.log('Sorry some error occured while connecting to Mongodb');
+   console.log(err);
+});
+
+
 const MongoURL = 'mongodb://Anoop:nTomnAYNlNx0NpM4@meantest-shard-00-00-dc1ia.mongodb.net:27017,meantest-shard-00-01-dc1ia.mongodb.net:27017,meantest-shard-00-02-dc1ia.mongodb.net:27017/test?ssl=true&replicaSet=MeanTest-shard-0&authSource=admin&retryWrites=true&w=majority';
+/*
 const conn = Mongoose.createConnection(MongoURL,
 { useNewUrlParser: true,  useUnifiedTopology: true });
 
@@ -28,17 +45,12 @@ conn.then(()=>{
 });
 
 
-
-// let conn = Mongoose.connection;
-// Grid.mongo = Mongoose.mongo;
-// let gfs;
-
  conn.once('open', function() {
     console.log('Opened the connection');
     gfs = Grid(conn.db, Mongoose.mongo)
     gfs.collection('uploads');
  })
-
+*/
  var storage = new GridFsStorage({
    url: MongoURL,
    file: (req, file) => {
@@ -105,6 +117,8 @@ app.post('/yo',  upload.single('fileLoaded'), function (req, res) {
       })
     }
    });
+
+   
 app.use('/api/Users', AppuserRoutes)
 app.use('/api/Idev_user', IdevuserRoutes)
 
