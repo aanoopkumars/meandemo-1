@@ -14,6 +14,8 @@ import { HomeComponent } from './home/home.component';
 import { FileUpoaderComponent } from './file-upoader/file-upoader.component';
 import { FileUploadService } from './file-upload.service';
 import { FileUploader2Component } from './file-uploader2/file-uploader2.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { UserFileUploadComponent } from './user-file-upload/user-file-upload.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { FileUploader2Component } from './file-uploader2/file-uploader2.componen
     FileUpoaderComponent,
     FileSelectDirective,
     FileDropDirective,
-    FileUploader2Component
+    FileUploader2Component,
+    UserManagementComponent,
+    UserFileUploadComponent
   ],
   imports: [
     BrowserModule,
