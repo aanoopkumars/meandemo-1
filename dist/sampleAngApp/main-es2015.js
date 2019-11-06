@@ -789,19 +789,13 @@ let FileUploader2Component = class FileUploader2Component {
         }
         else {
             console.log(this.form2.get('filename').value);
-            /*
             const formData = new FormData();
-             formData.append('fileLoaded', this.form2.get('filename').value);
-       
-             const url = 'http://localhost:3000/yo';
-             this.http.post(url, formData)
-           .subscribe(
-           (data: any) => {
-             console.log(data);
-           }
-         );
-       
-         */
+            formData.append('fileLoaded', this.form2.get('filename').value);
+            const url = 'http://localhost:3000/yo';
+            this.http.post(url, formData)
+                .subscribe((data) => {
+                console.log(data);
+            });
         }
     }
 };

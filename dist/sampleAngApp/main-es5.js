@@ -1535,17 +1535,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             return false;
           } else {
             console.log(this.form2.get('filename').value);
-            /*
-            const formData = new FormData();
-             formData.append('fileLoaded', this.form2.get('filename').value);
-                      const url = 'http://localhost:3000/yo';
-             this.http.post(url, formData)
-            .subscribe(
-            (data: any) => {
-             console.log(data);
-            }
-            );
-                  */
+            var formData = new FormData();
+            formData.append('fileLoaded', this.form2.get('filename').value);
+            var url = 'http://localhost:3000/yo';
+            this.http.post(url, formData).subscribe(function (data) {
+              console.log(data);
+            });
           }
         }
       }]);

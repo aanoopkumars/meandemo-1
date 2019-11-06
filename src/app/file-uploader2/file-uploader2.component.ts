@@ -41,7 +41,7 @@ export class FileUploader2Component implements OnInit {
       return false;
     }else{
       console.log(this.form2.get('filename').value);
-     /* 
+     
      const formData = new FormData();
       formData.append('fileLoaded', this.form2.get('filename').value);
 
@@ -53,7 +53,7 @@ export class FileUploader2Component implements OnInit {
     }
   );
 
-  */
+  
     }
 
     
