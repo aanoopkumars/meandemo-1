@@ -13,8 +13,8 @@ export class FileUploadService {
     })
   };
 
-  downloadPDF(filename, filetype): any {
-    return this.http.get('http://127.0.0.1:3000/api/file/' + filename, this.httpOptions);
+  downloadPDF(filename) {
+    return this.http.get('http://127.0.0.1:3000/api/FILE/files/' + filename, {responseType: 'blob'})
   }
 
   showFileNames() {

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -9,19 +9,28 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FileUploader2Component implements OnInit {
   form2: FormGroup
+  mimeTye= '';
   // @ViewChild('fileInput', { read: ElementRef, static: true }) private fileInput: ElementRef;
   constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
 
   ngOnInit() {
     this.form2 = this.formBuilder.group({
+     // fileInput: ['',[Validators.required, this.myValidator.bind(this)]],
+      fileInput: ['',[Validators.required]],
       filename: null
     });
   }
 
+  myValidator(el) {
+    console.log(el);
+  }
+
   onFileSelect(event: Event) {
-    console.log('change detected');
-    console.log((<HTMLInputElement>event.target).files[0])
+  //  console.log('change detected');
+   // console.log((<HTMLInputElement>event.target).files[0])
+   
     const file = (<HTMLInputElement>event.target).files[0];
+    this.mimeTye = file.type
     this.form2.patchValue({filename: file});
   }
 
@@ -32,7 +41,7 @@ export class FileUploader2Component implements OnInit {
       return false;
     }else{
       console.log(this.form2.get('filename').value);
-      
+     /* 
      const formData = new FormData();
       formData.append('fileLoaded', this.form2.get('filename').value);
 
@@ -43,7 +52,8 @@ export class FileUploader2Component implements OnInit {
       console.log(data);
     }
   );
-  
+
+  */
     }
 
     
