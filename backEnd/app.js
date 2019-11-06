@@ -76,7 +76,7 @@ app.use(bodyParser.json());
 
 // with dist file used, we dont need CORS
 //setting headers to manage CORS error if we try to access from angular server
-
+/*
 app.use((req, res, next) => {
  //  res.setHeader('Access-Control-Allow-Origin', '*');
    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
@@ -85,7 +85,7 @@ app.use((req, res, next) => {
    res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, DELETE, POST');
    next();
 })
-
+*/
 
 app.get('/api/FILE/files', function(req, res) {
 

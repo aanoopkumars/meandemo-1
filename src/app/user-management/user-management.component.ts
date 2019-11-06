@@ -32,7 +32,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
      //  console.log('on init')
-  /*
+  
    this.lbService.gettingUsers()
    .subscribe((rs) => {
 
@@ -43,7 +43,7 @@ export class UserManagementComponent implements OnInit, OnDestroy {
      }
      
    })
-   */
+   
   }
 
   regUsers(frm: NgForm) {

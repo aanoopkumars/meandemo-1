@@ -14,7 +14,7 @@ export class FileUploadService {
   };
 
   downloadPDF(filename) {
-    return this.http.get('http://127.0.0.1:3000/api/FILE/files/' + filename, {responseType: 'blob'})
+    return this.http.get('http://localhost:3000/api/FILE/files/' + filename, {responseType: 'blob'})
   }
 
   showFileNames() {

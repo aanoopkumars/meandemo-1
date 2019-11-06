@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"authContainer\">\r\n  <h3>Log In</h3>\r\n  <hr>\r\n  <form [formGroup]=\"formGrp\" (submit)=\"onSubmission()\" >\r\n      <div class=\"form-group\">\r\n        <label for=\"email\">Email address</label>\r\n        <input type=\"email\" class=\"form-control\" id=\"email\"  placeholder=\"Enter email\"\r\n         formControlName=\"email\"\r\n        >\r\n        <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"password\">Password</label>\r\n        <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\"\r\n        formControlName=\"password\"\r\n        >\r\n      </div>\r\n     \r\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!formGrp.valid\">Sign In</button>\r\n    </form>\r\n</div>\r\n\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"authContainer\">\r\n  <h3>Log In</h3>\r\n  <hr>\r\n  <form [formGroup]=\"formGrp\" (submit)=\"onSubmission()\" >\r\n      <div class=\"form-group\">\r\n        <label for=\"email\">Email address</label>\r\n        <input type=\"email\" class=\"form-control\" id=\"email\"  placeholder=\"Enter email\"\r\n         formControlName=\"email\"\r\n        >\r\n        <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\r\n      </div>\r\n      <div class=\"form-group\">\r\n        <label for=\"password\">Password</label>\r\n        <input type=\"password\" class=\"form-control\" id=\"password\" placeholder=\"Password\"\r\n        formControlName=\"password\"\r\n        >\r\n      </div>\r\n     \r\n      <button type=\"submit\" class=\"btn btn-primary\" [disabled]=\"!formGrp.valid\">Log In</button>\r\n    </form>\r\n</div>\r\n\r\n");
 
 /***/ }),
 
@@ -62,6 +62,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/file-uploader2/file-uploader2.component.html":
+/*!****************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/file-uploader2/file-uploader2.component.html ***!
+  \****************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<form  enctype=\"multipart/form-data\" [formGroup]=\"form2\">\r\n    <div class=\"fileContainer p-3 m-3 bg-light\">\r\n        \r\n            <div class=\"row mt-3\">\r\n                <div class=\"col-md-12\">\r\n                    <label for=\"upload\">Upload a csv file</label>\r\n                    <input  type=\"file\" accept=\".csv\" class=\"form-control-file\" formControlName=\"fileInput\"  id=\"upload\" (change)=\"onFileSelect($event)\" #fileInput>\r\n                </div>\r\n            </div>\r\n            <div class=\"row mt-3\">\r\n                <div class=\"col-md-12\">    \r\n                    <button class=\"btn btn-primary\"  type=\"button\" (click)=\"checkFile()\">upload</button>  \r\n            </div>\r\n            </div>\r\n    </div>\r\n</form>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/file-upoader/file-upoader.component.html":
+/*!************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/file-upoader/file-upoader.component.html ***!
+  \************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4\">\r\n          <br>\r\n            <form>\r\n                <div class=\"form-group\">\r\n                    <label for=\"multiple\">Choose file(s)</label>\r\n                    <input type=\"file\" class=\"form-control\" name=\"multiple\" ng2FileSelect [uploader]=\"uploader\" multiple  />\r\n                </div>            \r\n            </form>\r\n        </div>\r\n        </div>\r\n        <br>\r\n        \r\n        <div class=\"col-md-8\">\r\n             File(s) Selected: {{ uploader?.queue?.length }}\r\n            <table class=\"table\">\r\n                <thead>\r\n                <tr>\r\n                    <th width=\"50%\">Name</th>\r\n                    <th>Size</th>\r\n                    <th>Progress</th>\r\n                    <th>Status</th>\r\n                    <th>Actions</th>\r\n                </tr>\r\n                </thead>\r\n                <tbody>\r\n                <tr *ngFor=\"let item of uploader.queue\">\r\n                    <td><strong>{{ item.file.name }}</strong></td>\r\n                    <td nowrap>{{ item.file.size/1024/1024 | number:'.2' }} MB</td>\r\n                    <td>\r\n                        <div class=\"progress\" style=\"margin-bottom: 0;\">\r\n                            <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': item.progress + '%' }\"></div>\r\n                        </div>\r\n                    </td>\r\n                    <td class=\"text-center\">\r\n                        <span *ngIf=\"item.isSuccess\"><i class=\"fa fa-check\"></i></span>\r\n                        <span *ngIf=\"item.isCancel\"><i class=\"fa fa-ban\"></i></span>\r\n                        <span *ngIf=\"item.isError\"><i class=\"fa fa-times\"></i></span>\r\n                    </td>\r\n                    <td nowrap>\r\n                        <button type=\"button\" class=\"btn btn-success btn-xs\"\r\n                                (click)=\"item.upload()\" [disabled]=\"item.isReady || item.isUploading || item.isSuccess\">\r\n                            <span class=\"fa fa-upload\"></span> Upload\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-warning btn-xs\"\r\n                                (click)=\"item.cancel()\" [disabled]=\"!item.isUploading\">\r\n                            <span class=\"fa fa-ban\"></span> Cancel\r\n                        </button>\r\n                        <button type=\"button\" class=\"btn btn-danger btn-xs\"\r\n                                (click)=\"item.remove()\">\r\n                            <span class=\"fa fa-trash\"></span> Remove\r\n                        </button>\r\n                    </td>\r\n                </tr>\r\n                </tbody>\r\n            </table>\r\n  \r\n            <div>\r\n                <hr>\r\n\r\n                <div>\r\n                    Total progress:\r\n                    <div class=\"progress\">\r\n                        <div class=\"progress-bar\" role=\"progressbar\" [ngStyle]=\"{ 'width': uploader.progress + '%' }\"></div>\r\n                    </div>\r\n                    <hr>\r\n                </div>\r\n\r\n\r\n                <button type=\"button\" class=\"btn btn-success btn-s\"\r\n                        (click)=\"uploader.uploadAll()\" [disabled]=\"!uploader.getNotUploadedItems().length\">\r\n                    <span class=\"fa fa-upload\"></span> Upload all\r\n                </button>\r\n                <button type=\"button\" class=\"btn btn-warning btn-s\"\r\n                        (click)=\"uploader.cancelAll()\" [disabled]=\"!uploader.isUploading\">\r\n                    <span class=\"fa fa-ban\"></span> Cancel all\r\n                </button>\r\n                <button type=\"button\" class=\"btn btn-danger btn-s\"\r\n                        (click)=\"uploader.clearQueue()\" [disabled]=\"!uploader.queue.length\">\r\n                    <span class=\"fa fa-trash\"></span> Remove all\r\n                </button>\r\n            </div>\r\n        </div>\r\n\r\n    \r\n  </div>\r\n  <hr>\r\n  <!--\r\n  <div class=\"container\">\r\n      <table class=\"table table-hover\">\r\n          <thead>\r\n            <tr>\r\n              <th>File Name</th>\r\n              <th>Link</th>\r\n            </tr>\r\n          </thead>\r\n          <tbody>\r\n            <tr *ngFor=\"let file of files\">\r\n              <td>{{ file.originalname }}</td>\r\n              <td><button class=\"btn btn-primary button\" (click)=\"downloadPdf(file.filename, file.contentType)\">Download</button></td>\r\n            </tr>   \r\n          </tbody>\r\n        </table>\r\n    </div>\r\n\r\n-->\r\n    \r\n  ");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/home/home.component.html":
 /*!********************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/home/home.component.html ***!
@@ -71,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<form  #f=\"ngForm\" (submit)=\"mode == 'edit' ? updateUser(f) : regUsers(f)\">\r\n    <h2 class=\"formHead\">USER Management</h2>\r\n    \r\n    <div class=\"container\">\r\n        <hr>\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\">\r\n            <label >Name</label>\r\n            <input type=\"text\" class=\"form-control\" name=\"userName\" required ngModel [(ngModel)]=\"userN\">\r\n          </div>\r\n  \r\n      <div class=\"form-group col-md-6\">\r\n        <label>Email</label>\r\n        <input type=\"email\" class=\"form-control\" name=\"email\" ngModel placeholder=\"Email\" required ngModel [(ngModel)]=\"userE\">\r\n      </div>\r\n      \r\n    </div>\r\n  \r\n    <div class=\"form-row\">\r\n  \r\n        <div class=\"form-group col-md-6\">\r\n            <label >Role</label>\r\n            <select name=\"role\" class=\"form-control\" ngModel required ngModel [(ngModel)]=\"userR\">\r\n              <option selected>select any role</option>\r\n              <option>CBN Admin</option>\r\n              <option>DSO</option>\r\n            </select>\r\n          </div>\r\n      \r\n      <div class=\"form-group col-md-6\">\r\n        <label >Application</label>\r\n        <select name=\"appName\" class=\"form-control\" ngModel required ngModel [(ngModel)]=\"userA\">\r\n          <option selected>Choose...</option>\r\n          <option>VTS CUP</option>\r\n          <option>DNSO</option>\r\n          <option>Portal X</option>\r\n        </select>\r\n      </div>\r\n  \r\n  \r\n    </div>\r\n  \r\n    <button *ngIf= \"mode !='edit'\" type=\"submit\" class=\"btn btn-primary registerBtn\" [disabled]=\"!f.valid\">Register user</button>\r\n    <button *ngIf= \"mode =='edit'\" type=\"submit\" class=\"btn btn-primary registerBtn\" [disabled]=\"!f.valid\">Edit user</button>\r\n    <button *ngIf= \"mode =='edit'\" type=\"button\" class=\"btn btn-primary cancelbtn\" (click)=\"f.reset();mode='reg'\" >cancel</button>\r\n  </div>\r\n  </form>\r\n  \r\n  <div class=\"container\">\r\n  \r\n      <p *ngIf= \"usersArr.length == 0\">No users found...please add</p>\r\n      <table class=\"table table-striped\" *ngIf= \"usersArr.length != 0\">\r\n          <thead>\r\n            <tr>\r\n              <th scope=\"col\">#</th>\r\n              <th scope=\"col\">Name</th>\r\n              <th scope=\"col\">Email</th>\r\n              <th scope=\"col\">Application</th>\r\n              <th scope=\"col\">Role</th>\r\n              <th></th>\r\n              <th></th>\r\n            </tr>\r\n          </thead>\r\n          <tbody>\r\n            <tr *ngFor=\"let i of usersArr; index as j\">\r\n              <th scope=\"row\">{{j+1}}</th>\r\n              <td>{{i.userName}}</td>\r\n              <td>{{i.mailID}}</td>\r\n              <td>{{i.aplicationName}}</td>\r\n              <td>{{i.role}}</td>\r\n              <td><button class=\"btn btn-primary\" (click)=\"editUser(i.id)\">Edit</button></td>\r\n              <td><button class=\"btn btn-danger\" (click)=\"deleteUser(i.id)\">delete</button></td>\r\n            </tr>\r\n            \r\n          </tbody>\r\n        </table>\r\n  \r\n  </div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"nav d-flex\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link active\" [routerLink]=\"['/']\" >userManagement</a>\r\n  </li>\r\n  <li class=\"nav-item\"  routerLinkActive=\"active\">\r\n    <a class=\"nav-link\" [routerLink]=\"['/upload']\"  tabindex=\"-1\" >FileManagement</a>\r\n  </li>\r\n</nav>\r\n<router-outlet></router-outlet>\r\n\r\n\r\n \r\n");
 
 /***/ }),
 
@@ -84,7 +110,33 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm\">\r\n    <h5 class=\"my-0 mr-md-auto font-weight-normal\">IDevelop❤</h5>\r\n    <nav class=\"my-2 my-md-0 mr-md-3\">\r\n      <!-- <a class=\"p-2 text-dark\" href=\"#\">Features</a>\r\n      <a class=\"p-2 text-dark\" href=\"#\">Enterprise</a> -->\r\n      <a class=\"p-2 text-dark\" href=\"#\">Contact</a>\r\n      <a class=\"p-2 text-dark\" href=\"#\">About us!</a>\r\n    </nav>\r\n    <a *ngIf=\"isUserAuthenticated\" class=\"btn btn-outline-primary auth\" href=\"#\" [routerLink]=\"['/']\">Home</a>\r\n    <a *ngIf=\"isUserAuthenticated\" class=\"btn btn-outline-primary auth\" href=\"#\" (click)=\"userLogout()\">Logout</a>\r\n    <a *ngIf=\"!isUserAuthenticated\" class=\"btn btn-outline-primary auth\" href=\"#\" [routerLink]=\"['/login']\">Login</a>\r\n    <a *ngIf=\"!isUserAuthenticated\" class=\"btn btn-outline-primary auth\" href=\"#\" [routerLink]=\"['/signin']\">Sign up</a>\r\n  </div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<div class=\"d-flex flex-column flex-md-row align-items-center p-3 px-md-4 bg-white border-bottom shadow-sm\">\r\n    <h5 class=\"my-0 mr-md-auto font-weight-normal\">IDevelop❤</h5>\r\n    <nav class=\"my-2 my-md-0 mr-md-3\">\r\n\r\n      <a class=\"p-2 text-dark\" href=\"#\">Contact</a>\r\n      <a class=\"p-2 text-dark\" href=\"#\">About us!</a>\r\n    </nav>\r\n    <a *ngIf=\"isUserAuthenticated\" class=\"btn btn-outline-primary auth\" href=\"#\" [routerLink]=\"['/']\">Home</a>\r\n    <a *ngIf=\"isUserAuthenticated\" class=\"btn btn-outline-primary auth\" href=\"#\" (click)=\"userLogout()\">Logout</a>\r\n    <a *ngIf=\"!isUserAuthenticated\" class=\"btn btn-outline-primary auth\" href=\"#\" [routerLink]=\"['/login']\">Login</a>\r\n    <a *ngIf=\"!isUserAuthenticated\" class=\"btn btn-outline-primary auth\" href=\"#\" [routerLink]=\"['/signin']\">Sign up</a>\r\n  </div>\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-file-upload/user-file-upload.component.html":
+/*!********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user-file-upload/user-file-upload.component.html ***!
+  \********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"container\">\r\n    <app-file-uploader2></app-file-uploader2>\r\n    \r\n    <table class=\"table\">\r\n            <thead>\r\n              <tr>\r\n                <th>#</th>\r\n                <th>File Name</th>\r\n                <th>User</th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let item of Filelist; let i = index;\">\r\n                <th scope=\"row\">{{i}}</th>\r\n                <td><a (click)=\"downloadFile(item.filename)\" class=\"fileName\">{{item.filename}}</a></td>\r\n                <td>user-{{i}}</td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n</div>\r\n\r\n\r\n\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-management/user-management.component.html":
+/*!******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/user-management/user-management.component.html ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<form  #f=\"ngForm\" (submit)=\"mode == 'edit' ? updateUser(f) : regUsers(f)\">\r\n    <h2 class=\"formHead\">USER Management</h2>\r\n    \r\n    <div class=\"container\">\r\n        <hr>\r\n    <div class=\"form-row\">\r\n        <div class=\"form-group col-md-6\">\r\n            <label >Name</label>\r\n            <input type=\"text\" class=\"form-control\" name=\"userName\" required ngModel [(ngModel)]=\"userN\">\r\n          </div>\r\n  \r\n      <div class=\"form-group col-md-6\">\r\n        <label>Email</label>\r\n        <input type=\"email\" class=\"form-control\" name=\"email\" ngModel placeholder=\"Email\" required ngModel [(ngModel)]=\"userE\">\r\n      </div>\r\n      \r\n    </div>\r\n  \r\n    <div class=\"form-row\">\r\n  \r\n        <div class=\"form-group col-md-6\">\r\n            <label >Role</label>\r\n            <select name=\"role\" class=\"form-control\" ngModel required ngModel [(ngModel)]=\"userR\">\r\n              <option selected>select any role</option>\r\n              <option>CBN Admin</option>\r\n              <option>DSO</option>\r\n            </select>\r\n          </div>\r\n      \r\n      <div class=\"form-group col-md-6\">\r\n        <label >Application</label>\r\n        <select name=\"appName\" class=\"form-control\" ngModel required ngModel [(ngModel)]=\"userA\">\r\n          <option selected>Choose...</option>\r\n          <option>VTS CUP</option>\r\n          <option>DNSO</option>\r\n          <option>Portal X</option>\r\n        </select>\r\n      </div>\r\n  \r\n  \r\n    </div>\r\n  \r\n    <button *ngIf= \"mode !='edit'\" type=\"submit\" class=\"btn btn-primary registerBtn\" [disabled]=\"!f.valid\">Register user</button>\r\n    <button *ngIf= \"mode =='edit'\" type=\"submit\" class=\"btn btn-primary registerBtn\" [disabled]=\"!f.valid\">Edit user</button>\r\n    <button *ngIf= \"mode =='edit'\" type=\"button\" class=\"btn btn-primary cancelbtn\" (click)=\"f.reset();mode='reg'\" >cancel</button>\r\n    \r\n\r\n  </div>\r\n   \r\n  \r\n\r\n  </form>\r\n\r\n  <div class=\"container\">\r\n  \r\n    <p *ngIf= \"usersArr.length == 0\">No users found...please add</p>\r\n    <table class=\"table table-striped\" *ngIf= \"usersArr.length != 0\">\r\n        <thead>\r\n          <tr>\r\n            <th scope=\"col\">#</th>\r\n            <th scope=\"col\">Name</th>\r\n            <th scope=\"col\">Email</th>\r\n            <th scope=\"col\">Application</th>\r\n            <th scope=\"col\">Role</th>\r\n            <th></th>\r\n            <th></th>\r\n          </tr>\r\n        </thead>\r\n        <tbody>\r\n          <tr *ngFor=\"let i of usersArr; index as j\">\r\n            <th scope=\"row\">{{j+1}}</th>\r\n            <td>{{i.userName}}</td>\r\n            <td>{{i.mailID}}</td>\r\n            <td>{{i.aplicationName}}</td>\r\n            <td>{{i.role}}</td>\r\n            <td><button class=\"btn btn-primary\" (click)=\"editUser(i.id)\">Edit</button></td>\r\n            <td><button class=\"btn btn-danger\" (click)=\"deleteUser(i.id)\">delete</button></td>\r\n          </tr>\r\n          \r\n        </tbody>\r\n      </table>\r\n\r\n</div>\r\n");
 
 /***/ }),
 
@@ -333,7 +385,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _auth_login_login_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth/login/login.component */ "./src/app/auth/login/login.component.ts");
 /* harmony import */ var _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./auth/signin/signin.component */ "./src/app/auth/signin/signin.component.ts");
 /* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var _user_management_user_management_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./user-management/user-management.component */ "./src/app/user-management/user-management.component.ts");
+/* harmony import */ var _user_file_upload_user_file_upload_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./user-file-upload/user-file-upload.component */ "./src/app/user-file-upload/user-file-upload.component.ts");
+
 
 
 
@@ -342,8 +396,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const routes = [
-    { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"] },
-    { path: 'login', component: _auth_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"], canActivate: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_6__["authGuard"]] },
+    // routeGuard is not needed as we r not saving anything in localstorage. we r using cookie
+    // {path:'', component: HomeComponent, canActivate: [authGuard]},
+    { path: '', component: _home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
+        children: [
+            { path: '', component: _user_management_user_management_component__WEBPACK_IMPORTED_MODULE_6__["UserManagementComponent"] },
+            { path: 'upload', component: _user_file_upload_user_file_upload_component__WEBPACK_IMPORTED_MODULE_7__["UserFileUploadComponent"] }
+        ]
+    },
+    { path: 'login', component: _auth_login_login_component__WEBPACK_IMPORTED_MODULE_3__["LoginComponent"] },
     { path: 'signin', component: _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_4__["SigninComponent"] },
     { path: '**', redirectTo: 'login' }
 ];
@@ -416,13 +477,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
-/* harmony import */ var _auth_login_login_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./auth/login/login.component */ "./src/app/auth/login/login.component.ts");
-/* harmony import */ var _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./auth/signin/signin.component */ "./src/app/auth/signin/signin.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./auth/auth.guard */ "./src/app/auth/auth.guard.ts");
+/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ng2-file-upload */ "./node_modules/ng2-file-upload/fesm2015/ng2-file-upload.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./nav-bar/nav-bar.component */ "./src/app/nav-bar/nav-bar.component.ts");
+/* harmony import */ var _auth_login_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./auth/login/login.component */ "./src/app/auth/login/login.component.ts");
+/* harmony import */ var _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./auth/signin/signin.component */ "./src/app/auth/signin/signin.component.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _file_upoader_file_upoader_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./file-upoader/file-upoader.component */ "./src/app/file-upoader/file-upoader.component.ts");
+/* harmony import */ var _file_upload_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./file-upload.service */ "./src/app/file-upload.service.ts");
+/* harmony import */ var _file_uploader2_file_uploader2_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./file-uploader2/file-uploader2.component */ "./src/app/file-uploader2/file-uploader2.component.ts");
+/* harmony import */ var _user_management_user_management_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./user-management/user-management.component */ "./src/app/user-management/user-management.component.ts");
+/* harmony import */ var _user_file_upload_user_file_upload_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./user-file-upload/user-file-upload.component */ "./src/app/user-file-upload/user-file-upload.component.ts");
+
+
+
+
+
 
 
 
@@ -440,47 +511,30 @@ let AppModule = class AppModule {
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
-            _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_7__["NavBarComponent"],
-            _auth_login_login_component__WEBPACK_IMPORTED_MODULE_8__["LoginComponent"],
-            _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_9__["SigninComponent"],
-            _home_home_component__WEBPACK_IMPORTED_MODULE_10__["HomeComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"],
+            _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_8__["NavBarComponent"],
+            _auth_login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
+            _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_10__["SigninComponent"],
+            _home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"],
+            _file_upoader_file_upoader_component__WEBPACK_IMPORTED_MODULE_12__["FileUpoaderComponent"],
+            ng2_file_upload__WEBPACK_IMPORTED_MODULE_5__["FileSelectDirective"],
+            ng2_file_upload__WEBPACK_IMPORTED_MODULE_5__["FileDropDirective"],
+            _file_uploader2_file_uploader2_component__WEBPACK_IMPORTED_MODULE_14__["FileUploader2Component"],
+            _user_management_user_management_component__WEBPACK_IMPORTED_MODULE_15__["UserManagementComponent"],
+            _user_file_upload_user_file_upload_component__WEBPACK_IMPORTED_MODULE_16__["UserFileUploadComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
-            _app_routing_module__WEBPACK_IMPORTED_MODULE_5__["AppRoutingModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"]
         ],
-        providers: [_auth_auth_guard__WEBPACK_IMPORTED_MODULE_11__["authGuard"]],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
+        providers: [_file_upload_service__WEBPACK_IMPORTED_MODULE_13__["FileUploadService"]],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
     })
 ], AppModule);
 
-
-
-/***/ }),
-
-/***/ "./src/app/auth/auth.guard.ts":
-/*!************************************!*\
-  !*** ./src/app/auth/auth.guard.ts ***!
-  \************************************/
-/*! exports provided: authGuard */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "authGuard", function() { return authGuard; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-
-// @Injectable({providedIn: "root"})
-class authGuard {
-    canActivate(route, state) {
-        console.log('In routGuard');
-        return true;
-    }
-}
 
 
 /***/ }),
@@ -630,6 +684,199 @@ SigninComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/file-upload.service.ts":
+/*!****************************************!*\
+  !*** ./src/app/file-upload.service.ts ***!
+  \****************************************/
+/*! exports provided: FileUploadService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FileUploadService", function() { return FileUploadService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+let FileUploadService = class FileUploadService {
+    constructor(http) {
+        this.http = http;
+        this.httpOptions = {
+            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                'Content-Type': 'Blob',
+            })
+        };
+    }
+    downloadPDF(filename) {
+        return this.http.get('http://localhost:3000/api/FILE/files/' + filename, { responseType: 'blob' });
+    }
+    showFileNames() {
+        return this.http.get('http://localhost:3000/api/Files');
+    }
+};
+FileUploadService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+FileUploadService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])()
+], FileUploadService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/file-uploader2/file-uploader2.component.css":
+/*!*************************************************************!*\
+  !*** ./src/app/file-uploader2/file-uploader2.component.css ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ZpbGUtdXBsb2FkZXIyL2ZpbGUtdXBsb2FkZXIyLmNvbXBvbmVudC5jc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/file-uploader2/file-uploader2.component.ts":
+/*!************************************************************!*\
+  !*** ./src/app/file-uploader2/file-uploader2.component.ts ***!
+  \************************************************************/
+/*! exports provided: FileUploader2Component */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FileUploader2Component", function() { return FileUploader2Component; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+
+let FileUploader2Component = class FileUploader2Component {
+    // @ViewChild('fileInput', { read: ElementRef, static: true }) private fileInput: ElementRef;
+    constructor(formBuilder, http) {
+        this.formBuilder = formBuilder;
+        this.http = http;
+        this.mimeTye = '';
+    }
+    ngOnInit() {
+        this.form2 = this.formBuilder.group({
+            // fileInput: ['',[Validators.required, this.myValidator.bind(this)]],
+            fileInput: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_2__["Validators"].required]],
+            filename: null
+        });
+    }
+    myValidator(el) {
+        console.log(el);
+    }
+    onFileSelect(event) {
+        //  console.log('change detected');
+        // console.log((<HTMLInputElement>event.target).files[0])
+        const file = event.target.files[0];
+        this.mimeTye = file.type;
+        this.form2.patchValue({ filename: file });
+    }
+    checkFile() {
+        if (this.form2.invalid) {
+            alert('Please select a csv file');
+            return false;
+        }
+        else {
+            console.log(this.form2.get('filename').value);
+            /*
+            const formData = new FormData();
+             formData.append('fileLoaded', this.form2.get('filename').value);
+       
+             const url = 'http://localhost:3000/yo';
+             this.http.post(url, formData)
+           .subscribe(
+           (data: any) => {
+             console.log(data);
+           }
+         );
+       
+         */
+        }
+    }
+};
+FileUploader2Component.ctorParameters = () => [
+    { type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"] },
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"] }
+];
+FileUploader2Component = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-file-uploader2',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./file-uploader2.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/file-uploader2/file-uploader2.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./file-uploader2.component.css */ "./src/app/file-uploader2/file-uploader2.component.css")).default]
+    })
+], FileUploader2Component);
+
+
+
+/***/ }),
+
+/***/ "./src/app/file-upoader/file-upoader.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/file-upoader/file-upoader.component.css ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2ZpbGUtdXBvYWRlci9maWxlLXVwb2FkZXIuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/file-upoader/file-upoader.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/file-upoader/file-upoader.component.ts ***!
+  \********************************************************/
+/*! exports provided: FileUpoaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FileUpoaderComponent", function() { return FileUpoaderComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var ng2_file_upload__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ng2-file-upload */ "./node_modules/ng2-file-upload/fesm2015/ng2-file-upload.js");
+/* harmony import */ var _file_upload_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../file-upload.service */ "./src/app/file-upload.service.ts");
+
+
+
+
+let FileUpoaderComponent = class FileUpoaderComponent {
+    constructor(uploadService) {
+        this.uploadService = uploadService;
+        this.files = [];
+        this.url = 'http://localhost:3000/api/upload';
+    }
+    ngOnInit() {
+        this.uploader = new ng2_file_upload__WEBPACK_IMPORTED_MODULE_2__["FileUploader"]({ url: this.url });
+    }
+};
+FileUpoaderComponent.ctorParameters = () => [
+    { type: _file_upload_service__WEBPACK_IMPORTED_MODULE_3__["FileUploadService"] }
+];
+FileUpoaderComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-file-upoader',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./file-upoader.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/file-upoader/file-upoader.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./file-upoader.component.css */ "./src/app/file-upoader/file-upoader.component.css")).default]
+    })
+], FileUpoaderComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/home/home.component.css":
 /*!*****************************************!*\
   !*** ./src/app/home/home.component.css ***!
@@ -655,77 +902,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _lb_call_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lb-call.service */ "./src/app/lb-call.service.ts");
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
-
-
 
 
 let HomeComponent = class HomeComponent {
-    constructor(lbService, rtr) {
-        this.lbService = lbService;
-        this.rtr = rtr;
-        this.title = 'sampleApp';
-        this.mode = '';
-        this.userN = '';
-        this.userE = '';
-        this.userR = '';
-        this.userA = '';
-        this.usersArr = [];
-        this.subSub = this.lbService.subscribeTouserChanges().subscribe((usrs) => {
-            this.usersArr = usrs;
-            //  console.log('Inside subscription');
-            // console.log(this.usersArr);
-        });
+    constructor() {
     }
     ngOnInit() {
-        //  console.log('on init')
-        this.lbService.gettingUsers()
-            .subscribe((rs) => {
-        }, (err) => {
-            if (err.status == 401) {
-                alert('Please login!');
-                this.rtr.navigate(['/login']);
-            }
-        });
-    }
-    regUsers(frm) {
-        this.mode = 'reg';
-        // this.lbService.gettingUsers().subscribe((res)=> {
-        //   console.log(res);
-        // });
-        //  console.log(frm.value);
-        this.lbService.addUser(frm.value);
-        frm.reset();
-    }
-    updateUser(frm) {
-        this.lbService.editUser(frm.value, this.userI);
-        this.mode = 'reg';
-        frm.reset();
-    }
-    deleteUser(ID) {
-        if (!confirm('Are you sure want to delete this user?'))
-            return false;
-        this.lbService.DeleteUser(ID);
-    }
-    editUser(ID) {
-        this.mode = 'edit';
-        this.lbService.getuser(ID).subscribe((editres) => {
-            this.userN = editres.userName;
-            this.userE = editres.mailID;
-            this.userR = editres.role;
-            this.userA = editres.aplicationName;
-            this.userI = editres.id;
-        });
-    }
-    ngOnDestroy() {
-        this.subSub.unsubscribe();
     }
 };
-HomeComponent.ctorParameters = () => [
-    { type: _lb_call_service__WEBPACK_IMPORTED_MODULE_2__["LbCallService"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
-];
 HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-home',
@@ -901,6 +1085,181 @@ NavBarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./nav-bar.component.css */ "./src/app/nav-bar/nav-bar.component.css")).default]
     })
 ], NavBarComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/user-file-upload/user-file-upload.component.css":
+/*!*****************************************************************!*\
+  !*** ./src/app/user-file-upload/user-file-upload.component.css ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".fileName:hover {\r\n   text-decoration: underline!important;\r\n   color: blue!important;\r\n   cursor: pointer;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci1maWxlLXVwbG9hZC91c2VyLWZpbGUtdXBsb2FkLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7R0FDRyxvQ0FBb0M7R0FDcEMscUJBQXFCO0dBQ3JCLGVBQWU7QUFDbEIiLCJmaWxlIjoic3JjL2FwcC91c2VyLWZpbGUtdXBsb2FkL3VzZXItZmlsZS11cGxvYWQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5maWxlTmFtZTpob3ZlciB7XHJcbiAgIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lIWltcG9ydGFudDtcclxuICAgY29sb3I6IGJsdWUhaW1wb3J0YW50O1xyXG4gICBjdXJzb3I6IHBvaW50ZXI7XHJcbn0iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/user-file-upload/user-file-upload.component.ts":
+/*!****************************************************************!*\
+  !*** ./src/app/user-file-upload/user-file-upload.component.ts ***!
+  \****************************************************************/
+/*! exports provided: UserFileUploadComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserFileUploadComponent", function() { return UserFileUploadComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _file_upload_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../file-upload.service */ "./src/app/file-upload.service.ts");
+
+
+
+
+let UserFileUploadComponent = class UserFileUploadComponent {
+    constructor(http, fileService) {
+        this.http = http;
+        this.fileService = fileService;
+        this.Filelist = [];
+    }
+    ngOnInit() {
+        this.http.get('http://localhost:3000/api/FILE/files')
+            .subscribe((fileData) => {
+            this.Filelist = fileData.files;
+        });
+    }
+    downloadFile(fileName) {
+        this.fileService.downloadPDF(fileName)
+            .subscribe((fileData) => {
+            const fileURL = URL.createObjectURL(fileData);
+            window.open(fileURL);
+        });
+    }
+};
+UserFileUploadComponent.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _file_upload_service__WEBPACK_IMPORTED_MODULE_3__["FileUploadService"] }
+];
+UserFileUploadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-user-file-upload',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./user-file-upload.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-file-upload/user-file-upload.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./user-file-upload.component.css */ "./src/app/user-file-upload/user-file-upload.component.css")).default]
+    })
+], UserFileUploadComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/user-management/user-management.component.css":
+/*!***************************************************************!*\
+  !*** ./src/app/user-management/user-management.component.css ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VzZXItbWFuYWdlbWVudC91c2VyLW1hbmFnZW1lbnQuY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/user-management/user-management.component.ts":
+/*!**************************************************************!*\
+  !*** ./src/app/user-management/user-management.component.ts ***!
+  \**************************************************************/
+/*! exports provided: UserManagementComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UserManagementComponent", function() { return UserManagementComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _lb_call_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lb-call.service */ "./src/app/lb-call.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+
+let UserManagementComponent = class UserManagementComponent {
+    constructor(lbService, rtr) {
+        this.lbService = lbService;
+        this.rtr = rtr;
+        this.title = 'sampleApp';
+        this.mode = '';
+        this.userN = '';
+        this.userE = '';
+        this.userR = '';
+        this.userA = '';
+        this.usersArr = [];
+        this.subSub = this.lbService.subscribeTouserChanges().subscribe((usrs) => {
+            this.usersArr = usrs;
+            //  console.log('Inside subscription');
+            // console.log(this.usersArr);
+        });
+    }
+    ngOnInit() {
+        //  console.log('on init')
+        this.lbService.gettingUsers()
+            .subscribe((rs) => {
+        }, (err) => {
+            if (err.status == 401) {
+                alert('Please login!');
+                this.rtr.navigate(['/login']);
+            }
+        });
+    }
+    regUsers(frm) {
+        this.mode = 'reg';
+        // this.lbService.gettingUsers().subscribe((res)=> {
+        //   console.log(res);
+        // });
+        //  console.log(frm.value);
+        this.lbService.addUser(frm.value);
+        frm.reset();
+    }
+    updateUser(frm) {
+        this.lbService.editUser(frm.value, this.userI);
+        this.mode = 'reg';
+        frm.reset();
+    }
+    deleteUser(ID) {
+        if (!confirm('Are you sure want to delete this user?'))
+            return false;
+        this.lbService.DeleteUser(ID);
+    }
+    editUser(ID) {
+        this.mode = 'edit';
+        this.lbService.getuser(ID).subscribe((editres) => {
+            this.userN = editres.userName;
+            this.userE = editres.mailID;
+            this.userR = editres.role;
+            this.userA = editres.aplicationName;
+            this.userI = editres.id;
+        });
+    }
+    ngOnDestroy() {
+        this.subSub.unsubscribe();
+    }
+};
+UserManagementComponent.ctorParameters = () => [
+    { type: _lb_call_service__WEBPACK_IMPORTED_MODULE_2__["LbCallService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"] }
+];
+UserManagementComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-user-management',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./user-management.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/user-management/user-management.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./user-management.component.css */ "./src/app/user-management/user-management.component.css")).default]
+    })
+], UserManagementComponent);
 
 
 
