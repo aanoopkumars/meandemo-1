@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { FileSelectDirective, FileDropDirective } from 'ng2-file-upload';
+import { DataTablesModule } from 'angular-datatables';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,8 @@ import { FileUploadService } from './file-upload.service';
 import { FileUploader2Component } from './file-uploader2/file-uploader2.component';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { UserFileUploadComponent } from './user-file-upload/user-file-upload.component';
+import { FileImportComponent } from './file-import/file-import.component';
+
 
 
 @NgModule({
@@ -30,14 +33,16 @@ import { UserFileUploadComponent } from './user-file-upload/user-file-upload.com
     FileDropDirective,
     FileUploader2Component,
     UserManagementComponent,
-    UserFileUploadComponent
+    UserFileUploadComponent,
+    FileImportComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule
   ],
   providers: [FileUploadService],
   bootstrap: [AppComponent]

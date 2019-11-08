@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="jumbotron">
+            
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger1">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>File Name</th>
+                <th>User</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of Filelist; let i = index;">
+                <th scope="row"><input type="checkbox" name="idd" [value]="item.filename" (change)="addtoList($event)"></th>
+                <td><a  class="fileName">{{item.filename}}</a></td>
+                <td>user-{{i+1}}</td>
+              </tr>
+            </tbody>
+          </table>
+
+        <button class="btn btn-primary" type="button" (click)="importFile()">import File1</button>
+    </div>
+    
+
+    
+</div>
+
+

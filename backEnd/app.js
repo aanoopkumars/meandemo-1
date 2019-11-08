@@ -5,6 +5,8 @@ const Mongoose = require('mongoose');
 const path = require('path');
 const crypto = require('crypto');
 
+const MongoUser = require('./dbModels/User')
+
 let multer = require('multer');
 let GridFsStorage = require('multer-gridfs-storage');
 let Grid = require('gridfs-stream');
@@ -76,7 +78,7 @@ app.use(bodyParser.json());
 
 // with dist file used, we dont need CORS
 //setting headers to manage CORS error if we try to access from angular server
-/*
+
 app.use((req, res, next) => {
  //  res.setHeader('Access-Control-Allow-Origin', '*');
    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
@@ -85,13 +87,13 @@ app.use((req, res, next) => {
    res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, DELETE, POST');
    next();
 })
-*/
+
 
 app.get('/api/FILE/files', function(req, res) {
 
    gfs.files.find().toArray(function (err, files) {
       if(err || !files || files.length===0){
-        res.status(401).json({
+       return res.status(401).json({
            err: 'Sorry, some error occured'
         })
       }
@@ -109,12 +111,12 @@ app.get('/api/FILE/files/:filename',(req, res)=> {
   gfs.files.find({filename: req.params.filename}).toArray((err, file) => {
       
     if(err || !file || file.length===0){
-      res.status(401).json({
+     return res.status(401).json({
          err: 'Sorry, some error occured'
       })
     }
     
-    console.log(file);
+  //  console.log(file);
           // creating read stream
   let readStream = gfs.createReadStream({
     filename: file[0].filename,
@@ -128,6 +130,73 @@ app.get('/api/FILE/files/:filename',(req, res)=> {
    return readStream.pipe(res);
 
   })
+
+  
+})
+
+app.get('/api/FILE/import/:filename',(req, res)=> {
+  //  console.log(req.params.filename);
+  buffer = "";
+ // fN = '12f4797c1daa627ac02124f56783c7b2.csv';
+   gfs.files.find({filename: req.params.filename}).toArray((err, file) => {
+  //  gfs.files.find({filename: fN}).toArray((err, file) => {
+      
+    if(err || !file || file.length===0){
+     return res.status(401).json({
+         err: 'Sorry, some error occured'
+      })
+    }
+    
+  //  console.log(file);
+    
+          // creating read stream
+  let readStream = gfs.createReadStream({
+    filename: file[0].filename,
+    root: "uploads"
+  })
+
+
+  readStream.on("data", function (chunk) {
+    buffer += chunk;
+    
+});
+
+
+// dump contents to console when complete
+readStream.on("end", function (data) {
+      //  let buffArray = buffer.replace(/[\r\n]+/g," ").split(';');
+      let buffArray = buffer.split('\r\n');
+        buffArray.forEach(element => {
+          if(element){
+          let elmArr = element.split(',');
+          let user = new MongoUser({
+            userName: elmArr[0],
+            role: elmArr[1],
+            mailID: elmArr[2],
+            aplicationName: elmArr[3]
+          })
+
+        //  console.log(user);
+
+          user.save((data)=> {
+            console.log('saved to DB by import');
+        });
+        
+      }
+
+        }); 
+    
+    
+
+    res.status(200).json({message: 'imported'});
+
+
+});
+
+
+  })
+
+  
 
   
 })

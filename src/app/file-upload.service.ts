@@ -21,4 +21,8 @@ export class FileUploadService {
     return this.http.get('http://localhost:3000/api/Files');
   }
 
+  importFile(filename) {
+    return this.http.get('http://localhost:3000/api/FILE/import/' + filename)
+  }
+
 }

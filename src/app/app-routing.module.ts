@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { authGuard } from './auth/auth.guard';
 import { UserManagementComponent } from './user-management/user-management.component';
 import { UserFileUploadComponent } from './user-file-upload/user-file-upload.component';
+import { FileImportComponent } from './file-import/file-import.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'', component: HomeComponent,
   children: [
      {path: '', component: UserManagementComponent},
-     {path: 'upload', component: UserFileUploadComponent}
+     {path: 'upload', component: UserFileUploadComponent},
+     {path: 'import', component: FileImportComponent}
   ]
   },
   {path:'login', component: LoginComponent},
