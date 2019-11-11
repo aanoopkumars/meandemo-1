@@ -1,7 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewChecked } from '@angular/core';
 import { FileUploadService } from '../file-upload.service';
 import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { SocketService } from '../socket.service';
+
 
 // import { UserFileUploadComponent } from '../user-file-upload/user-file-upload.component'
 
@@ -16,7 +18,15 @@ export class FileImportComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
   dtTrigger1 = new Subject();
   NoImport = true;
-  constructor(private fileService: FileUploadService, private http: HttpClient) { }
+ 
+  
+  constructor(private fileService: FileUploadService, private http: HttpClient,
+    private socketServices: SocketService) {
+   /* this.socketServices.getMessage().subscribe( (data) => {
+      console.log('User data', data);
+  })
+  */
+   }
 
   ngOnInit() {
 
@@ -25,6 +35,8 @@ export class FileImportComponent implements OnInit, OnDestroy {
       pageLength: 2
     };
 
+ 
+
     this.http.get<{files: []}>('http://localhost:3000/api/FILE/files')
     .subscribe((fileData) => {
       this.Filelist = fileData.files;
@@ -32,15 +44,16 @@ export class FileImportComponent implements OnInit, OnDestroy {
     })
   }
 
+
   importFile() {
   //  console.log(this.selectionList);
   this.NoImport = false;
-  /*
+  
    this.fileService.importFile(this.selectionList[0])
    .subscribe((data) => {
       console.log(' from import subscription');
    })
-   */  
+   
   }
 
   ngOnDestroy(): void {
@@ -68,7 +81,7 @@ export class FileImportComponent implements OnInit, OnDestroy {
   }
 
   removeModal() {
-    console.log('In')
+   // console.log('In')
     this.NoImport = true;
   }
 
