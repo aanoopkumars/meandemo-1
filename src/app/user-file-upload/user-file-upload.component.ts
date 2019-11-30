@@ -21,24 +21,42 @@ export class UserFileUploadComponent implements OnInit, OnDestroy {
       pageLength: 2
     };
 
-    this.http.get<{files: []}>('http://localhost:3000/api/FILE/files')
-    .subscribe((fileData) => {
-      this.Filelist = fileData.files;
-      this.dtTrigger.next();
+     this.getFiles();
+    this.fileService.uploadIndicator()
+    .subscribe((indRes)=> {
+      this.getFiles();
     })
   }
 
   downloadFile(fileName: string) {
       this.fileService.downloadPDF(fileName)
         .subscribe((fileData) => {
-           const fileURL = URL.createObjectURL(fileData);
-           window.open(fileURL);
+          console.log(fileData);
+          
+        //  const filename = fileData.headers.get('file_name');
+           const fileURL = URL.createObjectURL(fileData.body);
+          // window.open(fileURL);
+         // const filename = 'testFile'
+          const anchor = document.createElement("a");
+            anchor.download = fileName;
+            anchor.href = fileURL;
+            anchor.click();
 
+            URL.revokeObjectURL(fileURL)
+      
         })
   }
 
   ngOnDestroy(): void {
     this.dtTrigger.unsubscribe();
+  }
+
+  getFiles() {
+    this.http.get<{files: []}>('http://localhost:3000/api/FILE/files')
+    .subscribe((fileData) => {
+      this.Filelist = fileData.files;
+      this.dtTrigger.next();
+    })
   }
 
 }

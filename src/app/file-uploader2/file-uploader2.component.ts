@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { FileUploadService } from '../file-upload.service';
 
 @Component({
   selector: 'app-file-uploader2',
@@ -11,7 +12,7 @@ export class FileUploader2Component implements OnInit {
   form2: FormGroup
   mimeTye= '';
   // @ViewChild('fileInput', { read: ElementRef, static: true }) private fileInput: ElementRef;
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private fileService: FileUploadService) { }
 
   ngOnInit() {
     this.form2 = this.formBuilder.group({
@@ -45,11 +46,12 @@ export class FileUploader2Component implements OnInit {
      const formData = new FormData();
       formData.append('fileLoaded', this.form2.get('filename').value);
 
-      const url = 'http://localhost:3000/yo';
-      this.http.post(url, formData)
+     // const url = 'http://localhost:3000/yo';
+     // this.http.post(url, formData)
+     this.fileService.uploadFile(formData)
     .subscribe(
     (data: any) => {
-      console.log(data);
+      alert('File uploaded succesfully');
     }
   );
 
