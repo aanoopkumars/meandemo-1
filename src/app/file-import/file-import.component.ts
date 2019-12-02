@@ -18,14 +18,19 @@ export class FileImportComponent implements OnInit, OnDestroy {
   dtOptions: DataTables.Settings = {};
   dtTrigger1 = new Subject();
   NoImport = true;
+  importStatus = false;
+  importResultArray = [];
  
   
   constructor(private fileService: FileUploadService, private http: HttpClient,
     private socketServices: SocketService) {
-   /* this.socketServices.getMessage().subscribe( (data) => {
-      console.log('User data', data);
+    this.socketServices.getMessage().subscribe( (data) => {
+    //  console.log('message from server----');
+    //  console.log(data);
+
+    this.importResultArray.push(data);
   })
-  */
+  
    }
 
   ngOnInit() {
@@ -48,11 +53,17 @@ export class FileImportComponent implements OnInit, OnDestroy {
   importFile() {
   //  console.log(this.selectionList);
   this.NoImport = false;
-  
-   this.fileService.importFile(this.selectionList[0])
+  this.importStatus = false;
+  this.importResultArray = [];
+
+  setTimeout(()=> {
+    this.fileService.importFile(this.selectionList[0])
    .subscribe((data) => {
       console.log(' from import subscription');
+      this.importStatus = true;
    })
+  } , 2000)
+   
    
   }
 

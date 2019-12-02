@@ -18,7 +18,7 @@
             </tbody>
           </table>
 
-        <button class="btn btn-primary mt-3" type="button" (click)="importFile()">import File1</button>
+        <button class="btn btn-primary mt-3" type="button" (click)="importFile()">import File</button>
     </div>
     
 
@@ -29,8 +29,17 @@
 <div  [ngClass]="{'modal-container': true, 'hidden': NoImport}">
     <span class="closePop" (click)="removeModal()">X</span>
    <div class="pop-container">
-     <p>Import In progress....</p>
-     
+    <div class="d-flex justify-content-around py-3">
+      <strong *ngIf="!importStatus">Import In progress...</strong>
+      <div *ngIf="!importStatus" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></div>
+      <strong *ngIf="importStatus">All rows imported Succesfully </strong>
+      <!-- <img *ngIf="importStatus" src="../../assets/iconmonstr-check-mark-1.svg" > -->
+    </div>
+       <div class="row" *ngFor="let item of importResultArray; let i=index">
+          <div class="col text-center">
+              <p class="text-muted font-weight-lighter font-italic">Row {{i+1}} Imported succesfully.</p>
+          </div>
+       </div>
    </div>
 </div>
 <div  (click)="removeModal()" [ngClass]="{'overlay': true, 'hidden': NoImport}"></div>

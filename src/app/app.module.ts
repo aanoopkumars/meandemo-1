@@ -19,8 +19,8 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { UserFileUploadComponent } from './user-file-upload/user-file-upload.component';
 import { FileImportComponent } from './file-import/file-import.component';
 
-// import {SocketIoModule, SocketIoConfig} from 'ngx-socket-io'
-// const config: SocketIoConfig = { url: 'http://localhost:3000/', options: {} };
+ import {SocketIoModule, SocketIoConfig} from 'ngx-socket-io'
+ const config: SocketIoConfig = { url: 'http://localhost:3000/', options: {} };
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,8 +42,8 @@ import { FileImportComponent } from './file-import/file-import.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    DataTablesModule
-   
+    DataTablesModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [FileUploadService],
   bootstrap: [AppComponent]

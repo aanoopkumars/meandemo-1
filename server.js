@@ -4,6 +4,7 @@ const http = require('http');
 const port = process.env.PORT;
  const path = require('path');
  const express = require('express');
+ const io = require('socket.io');
 
 
  const bodyParser = require('body-parser');
@@ -150,75 +151,7 @@ var storage = new GridFsStorage({
    
  })
  
- app.get('/api/FILE/import/:filename',(req, res)=> {
-   //  console.log(req.params.filename);
-   buffer = "";
-  // fN = '12f4797c1daa627ac02124f56783c7b2.csv';
-    gfs.files.find({filename: req.params.filename}).toArray((err, file) => {
-   //  gfs.files.find({filename: fN}).toArray((err, file) => {
-       
-     if(err || !file || file.length===0){
-      return res.status(401).json({
-          err: 'Sorry, some error occured'
-       })
-     }
-     
-   //  console.log(file);
-     
-           // creating read stream
-   let readStream = gfs.createReadStream({
-     filename: file[0].filename,
-     root: "uploads"
-   })
- 
- 
-   readStream.on("data", function (chunk) {
-     buffer += chunk;
-     
- });
- 
- 
- // dump contents to console when complete
- readStream.on("end", function (data) {
-       //  let buffArray = buffer.replace(/[\r\n]+/g," ").split(';');
-       let buffArray = buffer.split('\r\n');
-         buffArray.forEach(element => {
-           if(element){
-           let elmArr = element.split(',');
-           let user = new MongoUser({
-             userName: elmArr[0],
-             role: elmArr[1],
-             mailID: elmArr[2],
-             aplicationName: elmArr[3]
-           })
 
- 
-         //  console.log(user);
-        /*
-           user.save((data)=> {
-             console.log('saved to DB by import');
-         });
-
-         */
-         
-       }
- 
-         }); 
-     
-     
- 
-     res.status(200).json({message: 'imported'});
- 
- 
- });
- 
- 
-   })
- 
-   
- 
-   
- })
  
  app.post('/yo',  upload.single('fileLoaded'), function (req, res) {
    // console.dir(req.body.fileLoaded);
@@ -244,11 +177,111 @@ app.set('port',port);
 
 
 
-app.get('*', (req, res)=> { 
-    
-    res.sendFile(path.join(__dirname, '/dist/sampleAngApp/index.html'))}
-    );
+
 const server = http.createServer(app);
+const IO = io(server);
+
+
+
+
+app.get('/api/FILE/import/:filename',(req, res)=> {
+
+
+  //  console.log(req.params.filename);
+  buffer = "";
+ // fN = '12f4797c1daa627ac02124f56783c7b2.csv';
+   gfs.files.find({filename: req.params.filename}).toArray((err, file) => {
+  //  gfs.files.find({filename: fN}).toArray((err, file) => {
+      
+    if(err || !file || file.length===0){
+     return res.status(401).json({
+         err: 'Sorry, some error occured'
+      })
+    }
+    
+  //  console.log(file);
+    
+          // creating read stream
+  let readStream = gfs.createReadStream({
+    filename: file[0].filename,
+    root: "uploads"
+  })
+
+
+  readStream.on("data", function (chunk) {
+    buffer += chunk;
+    
+});
+
+
+// dump contents to console when complete
+readStream.on("end", function (data) {
+      //  let buffArray = buffer.replace(/[\r\n]+/g," ").split(';');
+
+      
+      function fireSocketEvent(usr) {
+        return new Promise(resolve => setTimeout(()=>{
+          usr.save((data)=> {
+            IO.sockets.emit('import', usr);
+            resolve();
+        })
+        }, 300));
+      }
+
+      
+      async function processrows(){
+        // ASYNC START  
+      //  console.log('before asyncFunc--------')
+            let buffArray = buffer.split('\r\n');
+        
+          for (const element of buffArray) {
+            //  await delayedLog(item);
+             
+            if(element){
+              let elmArr = element.split(',');
+              let user = new MongoUser({
+                userName: elmArr[0],
+                role: elmArr[1],
+                mailID: elmArr[2],
+                aplicationName: elmArr[3]
+              })
+    
+            //  IO.sockets.emit('import', user);
+          //  console.log('before AWAITTFunc--------')
+             await fireSocketEvent(user); 
+          //   console.log('after AWAITTFunc--------')
+    
+            //  console.log(user);
+           /*
+              user.save((data)=> {
+                console.log('saved to DB by import');
+            });
+    
+            */
+            
+          }
+
+            }    
+
+    
+    // console.log('After asyncFunc-------- going to send response')
+    res.status(200).json({message: 'imported'});
+
+        // ASYNC END
+      }
+      
+      processrows();
+
+
+});
+
+
+  })
+
+  
+
+  
+})
 
 
 server.listen(port || 3000,() => {
