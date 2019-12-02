@@ -1434,25 +1434,22 @@ let UserManagementComponent = class UserManagementComponent {
         this.usersArr = [];
         this.subSub = this.lbService.subscribeTouserChanges().subscribe((usrs) => {
             this.usersArr = usrs;
-            //  console.log('Inside subscription');
+            console.log('Inside subscription');
             // console.log(this.usersArr);
         });
     }
     ngOnInit() {
-        //  console.log('on init')
-        /*
-         this.lbService.gettingUsers()
-         .subscribe((rs) => {
-      
-         },(err)=> {
-           if(err.status==401){
-             alert('Please login!')
-             this.rtr.navigate(['/login']);
-           }
-           
-         })
-         
-         */
+        console.log('on init');
+        this.lbService.gettingUsers()
+            .subscribe((rs) => {
+            console.log(rs);
+        }, (err) => {
+            console.log(err);
+            if (err.status == 401) {
+                alert('Please login!');
+                this.rtr.navigate(['/login']);
+            }
+        });
     }
     regUsers(frm) {
         this.mode = 'reg';

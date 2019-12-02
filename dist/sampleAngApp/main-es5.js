@@ -2640,27 +2640,28 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.userA = '';
         this.usersArr = [];
         this.subSub = this.lbService.subscribeTouserChanges().subscribe(function (usrs) {
-          _this16.usersArr = usrs; //  console.log('Inside subscription');
-          // console.log(this.usersArr);
+          _this16.usersArr = usrs;
+          console.log('Inside subscription'); // console.log(this.usersArr);
         });
       }
 
       _createClass(UserManagementComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {//  console.log('on init')
+        value: function ngOnInit() {
+          var _this17 = this;
 
-          /*
-           this.lbService.gettingUsers()
-           .subscribe((rs) => {
-                   },(err)=> {
-             if(err.status==401){
-               alert('Please login!')
-               this.rtr.navigate(['/login']);
-             }
-             
-           })
-           
-           */
+          console.log('on init');
+          this.lbService.gettingUsers().subscribe(function (rs) {
+            console.log(rs);
+          }, function (err) {
+            console.log(err);
+
+            if (err.status == 401) {
+              alert('Please login!');
+
+              _this17.rtr.navigate(['/login']);
+            }
+          });
         }
       }, {
         key: "regUsers",
@@ -2689,15 +2690,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "editUser",
         value: function editUser(ID) {
-          var _this17 = this;
+          var _this18 = this;
 
           this.mode = 'edit';
           this.lbService.getuser(ID).subscribe(function (editres) {
-            _this17.userN = editres.userName;
-            _this17.userE = editres.mailID;
-            _this17.userR = editres.role;
-            _this17.userA = editres.aplicationName;
-            _this17.userI = editres.id;
+            _this18.userN = editres.userName;
+            _this18.userE = editres.mailID;
+            _this18.userR = editres.role;
+            _this18.userA = editres.aplicationName;
+            _this18.userI = editres.id;
           });
         }
       }, {
