@@ -104,70 +104,7 @@ var storage = new GridFsStorage({
       next();
    })
  
-   app.get('/api/FILE/files', function(req, res) {
 
-    gfs.files.find().toArray(function (err, files) {
-       if(err || !files || files.length===0){
-        return res.status(401).json({
-            err: 'Sorry, some error occured'
-         })
-       }
- 
- 
-       res.status(200).json({
-          files
-       });
-     })
-  
- })
- 
- app.get('/api/FILE/files/:filename',(req, res)=> {
-   //  console.log(req.params.filename);
-   gfs.files.find({filename: req.params.filename}).toArray((err, file) => {
-       
-     if(err || !file || file.length===0){
-      return res.status(401).json({
-          err: 'Sorry, some error occured'
-       })
-     }
-     
-   //  console.log(file);
-           // creating read stream
-   let readStream = gfs.createReadStream({
-     filename: file[0].filename,
-     root: "uploads"
-   })
- 
-    // setting proper content type
-    // res.set('Content-Disposition', 'attachment; filename=' + file[0].filename);
-    // res.set('file_name',file[0].filename)
-     res.set('Content-Type', file[0].contentType);
- 
-    // res.json({file: file})
-    return readStream.pipe(res);
- 
-   })
- 
-   
- })
- 
-
- 
- app.post('/yo',  upload.single('fileLoaded'), function (req, res) {
-   // console.dir(req.body.fileLoaded);
-    if (!req.file) {
-       console.log("No file received");
-       return res.send({
-         success: false
-       });
-     } else {
-       console.log('file received');
-       return res.send({
-         success: true
-       })
-     }
-    });
- 
    
  app.use('/api/Users', AppuserRoutes)
  app.use('/api/Idev_user', IdevuserRoutes)  
@@ -182,6 +119,69 @@ const server = http.createServer(app);
 const IO = io(server);
 
 
+app.get('/api/FILE/files', function(req, res) {
+
+  gfs.files.find().toArray(function (err, files) {
+     if(err || !files || files.length===0){
+      return res.status(401).json({
+          err: 'Sorry, some error occured'
+       })
+     }
+
+
+     res.status(200).json({
+        files
+     });
+   })
+
+})
+
+app.get('/api/FILE/files/:filename',(req, res)=> {
+ //  console.log(req.params.filename);
+ gfs.files.find({filename: req.params.filename}).toArray((err, file) => {
+     
+   if(err || !file || file.length===0){
+    return res.status(401).json({
+        err: 'Sorry, some error occured'
+     })
+   }
+   
+ //  console.log(file);
+         // creating read stream
+ let readStream = gfs.createReadStream({
+   filename: file[0].filename,
+   root: "uploads"
+ })
+
+  // setting proper content type
+  // res.set('Content-Disposition', 'attachment; filename=' + file[0].filename);
+  // res.set('file_name',file[0].filename)
+   res.set('Content-Type', file[0].contentType);
+
+  // res.json({file: file})
+  return readStream.pipe(res);
+
+ })
+
+ 
+})
+
+
+
+app.post('/yo',  upload.single('fileLoaded'), function (req, res) {
+ // console.dir(req.body.fileLoaded);
+  if (!req.file) {
+     console.log("No file received");
+     return res.send({
+       success: false
+     });
+   } else {
+     console.log('file received');
+     return res.send({
+       success: true
+     })
+   }
+  });
 
 
 app.get('/api/FILE/import/:filename',(req, res)=> {
@@ -282,6 +282,11 @@ readStream.on("end", function (data) {
 
   
 })
+
+app.get('*', (req, res)=> { 
+    
+  res.sendFile(path.join(__dirname, '/dist/sampleAngApp/index.html'))}
+  );
 
 
 server.listen(port || 3000,() => {
