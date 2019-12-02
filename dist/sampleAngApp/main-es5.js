@@ -104,6 +104,26 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./node_modules/raw-loader/dist/cjs.js!./src/app/file-import/file-import.component.html":
+  /*!**********************************************************************************************!*\
+    !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/file-import/file-import.component.html ***!
+    \**********************************************************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function node_modulesRawLoaderDistCjsJsSrcAppFileImportFileImportComponentHtml(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = "<div class=\"container\">\r\n    <div class=\"jumbotron\">\r\n            \r\n        <table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger1\">\r\n            <thead>\r\n              <tr>\r\n                <th>#</th>\r\n                <th>File Name</th>\r\n                <th>User</th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let item of Filelist; let i = index;\">\r\n                <th scope=\"row\"><input type=\"checkbox\" name=\"idd\" [value]=\"item.filename\" (change)=\"addtoList($event)\"></th>\r\n                <td><a  class=\"fileName\">{{item.filename}}</a></td>\r\n                <td>user-{{i+1}}</td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n\r\n        <button class=\"btn btn-primary mt-3\" type=\"button\" (click)=\"importFile()\">import File</button>\r\n    </div>\r\n    \r\n\r\n    \r\n</div>\r\n\r\n<!-- Custom modal setup -->\r\n<div  [ngClass]=\"{'modal-container': true, 'hidden': NoImport}\">\r\n    <span class=\"closePop\" (click)=\"removeModal()\">X</span>\r\n   <div class=\"pop-container\">\r\n    <div class=\"d-flex justify-content-around py-3\">\r\n      <strong *ngIf=\"!importStatus\">Import In progress...</strong>\r\n      <div *ngIf=\"!importStatus\" class=\"spinner-border spinner-border-sm\" role=\"status\" aria-hidden=\"true\"></div>\r\n      <strong *ngIf=\"importStatus\">All rows imported Succesfully </strong>\r\n      <!-- <img *ngIf=\"importStatus\" src=\"../../assets/iconmonstr-check-mark-1.svg\" > -->\r\n    </div>\r\n       <div class=\"row\" *ngFor=\"let item of importResultArray; let i=index\">\r\n          <div class=\"col text-center\">\r\n              <p class=\"text-muted font-weight-lighter font-italic\">Row {{i+1}} Imported succesfully.</p>\r\n          </div>\r\n       </div>\r\n   </div>\r\n</div>\r\n<div  (click)=\"removeModal()\" [ngClass]=\"{'overlay': true, 'hidden': NoImport}\"></div>\r\n\r\n\r\n";
+    /***/
+  },
+
+  /***/
   "./node_modules/raw-loader/dist/cjs.js!./src/app/file-uploader2/file-uploader2.component.html":
   /*!****************************************************************************************************!*\
     !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/file-uploader2/file-uploader2.component.html ***!
@@ -159,7 +179,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<nav class=\"nav d-flex\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link active\" [routerLink]=\"['/']\" >userManagement</a>\r\n  </li>\r\n  <li class=\"nav-item\"  routerLinkActive=\"active\">\r\n    <a class=\"nav-link\" [routerLink]=\"['/upload']\"  tabindex=\"-1\" >FileManagement</a>\r\n  </li>\r\n</nav>\r\n<router-outlet></router-outlet>\r\n\r\n\r\n \r\n";
+    __webpack_exports__["default"] = "<nav class=\"nav d-flex\">\r\n  <li class=\"nav-item\">\r\n    <a class=\"nav-link active\" [routerLink]=\"['/']\" >userManagement</a>\r\n  </li>\r\n  <li class=\"nav-item\" >\r\n    <a class=\"nav-link\" [routerLink]=\"['/upload']\"  tabindex=\"-1\" >FileManagement</a>\r\n  </li>\r\n  <li class=\"nav-item\" >\r\n      <a class=\"nav-link\" [routerLink]=\"['/import']\"  tabindex=\"-1\" >Import</a>\r\n    </li>\r\n</nav>\r\n<router-outlet></router-outlet>\r\n\r\n\r\n \r\n";
     /***/
   },
 
@@ -199,7 +219,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<div class=\"container\">\r\n    <app-file-uploader2></app-file-uploader2>\r\n    \r\n    <table class=\"table\">\r\n            <thead>\r\n              <tr>\r\n                <th>#</th>\r\n                <th>File Name</th>\r\n                <th>User</th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let item of Filelist; let i = index;\">\r\n                <th scope=\"row\">{{i}}</th>\r\n                <td><a (click)=\"downloadFile(item.filename)\" class=\"fileName\">{{item.filename}}</a></td>\r\n                <td>user-{{i}}</td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n</div>\r\n\r\n\r\n\r\n";
+    __webpack_exports__["default"] = "<div class=\"container\">\r\n    <app-file-uploader2></app-file-uploader2>\r\n    \r\n    <table datatable [dtOptions]=\"dtOptions\" [dtTrigger]=\"dtTrigger\">\r\n            <thead>\r\n              <tr>\r\n                <th>#</th>\r\n                <th>File Name</th>\r\n                <th>User</th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let item of Filelist; let i = index;\">\r\n                <th scope=\"row\">{{i+1}}</th>\r\n                <td><a (click)=\"downloadFile(item.filename)\" class=\"fileName\">{{item.filename}}</a></td>\r\n                <td>user-{{i+1}}</td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n</div>\r\n\r\n\r\n\r\n";
     /***/
   },
 
@@ -848,6 +868,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _user_file_upload_user_file_upload_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ./user-file-upload/user-file-upload.component */
     "./src/app/user-file-upload/user-file-upload.component.ts");
+    /* harmony import */
+
+
+    var _file_import_file_import_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ./file-import/file-import.component */
+    "./src/app/file-import/file-import.component.ts");
 
     var routes = [// routeGuard is not needed as we r not saving anything in localstorage. we r using cookie
     // {path:'', component: HomeComponent, canActivate: [authGuard]},
@@ -860,6 +886,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         path: 'upload',
         component: _user_file_upload_user_file_upload_component__WEBPACK_IMPORTED_MODULE_7__["UserFileUploadComponent"]
+      }, {
+        path: 'import',
+        component: _file_import_file_import_component__WEBPACK_IMPORTED_MODULE_8__["FileImportComponent"]
       }]
     }, {
       path: 'login',
@@ -1009,80 +1038,104 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _app_routing_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    var angular_datatables__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! angular-datatables */
+    "./node_modules/angular-datatables/index.js");
+    /* harmony import */
+
+
+    var _app_routing_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
     /*! ./app-routing.module */
     "./src/app/app-routing.module.ts");
     /* harmony import */
 
 
-    var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    var _app_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! ./app.component */
     "./src/app/app.component.ts");
     /* harmony import */
 
 
-    var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    var _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
     /*! ./nav-bar/nav-bar.component */
     "./src/app/nav-bar/nav-bar.component.ts");
     /* harmony import */
 
 
-    var _auth_login_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    var _auth_login_login_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
     /*! ./auth/login/login.component */
     "./src/app/auth/login/login.component.ts");
     /* harmony import */
 
 
-    var _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    var _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
     /*! ./auth/signin/signin.component */
     "./src/app/auth/signin/signin.component.ts");
     /* harmony import */
 
 
-    var _home_home_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(
+    var _home_home_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
     /*! ./home/home.component */
     "./src/app/home/home.component.ts");
     /* harmony import */
 
 
-    var _file_upoader_file_upoader_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
+    var _file_upoader_file_upoader_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
     /*! ./file-upoader/file-upoader.component */
     "./src/app/file-upoader/file-upoader.component.ts");
     /* harmony import */
 
 
-    var _file_upload_service__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(
+    var _file_upload_service__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
     /*! ./file-upload.service */
     "./src/app/file-upload.service.ts");
     /* harmony import */
 
 
-    var _file_uploader2_file_uploader2_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(
+    var _file_uploader2_file_uploader2_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
     /*! ./file-uploader2/file-uploader2.component */
     "./src/app/file-uploader2/file-uploader2.component.ts");
     /* harmony import */
 
 
-    var _user_management_user_management_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(
+    var _user_management_user_management_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
     /*! ./user-management/user-management.component */
     "./src/app/user-management/user-management.component.ts");
     /* harmony import */
 
 
-    var _user_file_upload_user_file_upload_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(
+    var _user_file_upload_user_file_upload_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(
     /*! ./user-file-upload/user-file-upload.component */
     "./src/app/user-file-upload/user-file-upload.component.ts");
+    /* harmony import */
+
+
+    var _file_import_file_import_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(
+    /*! ./file-import/file-import.component */
+    "./src/app/file-import/file-import.component.ts");
+    /* harmony import */
+
+
+    var ngx_socket_io__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(
+    /*! ngx-socket-io */
+    "./node_modules/ngx-socket-io/fesm2015/ngx-socket-io.js");
+
+    var config = {
+      url: 'http://localhost:3000/',
+      options: {}
+    };
 
     var AppModule = function AppModule() {
       _classCallCheck(this, AppModule);
     };
 
     AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
-      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"], _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_8__["NavBarComponent"], _auth_login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"], _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_10__["SigninComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_11__["HomeComponent"], _file_upoader_file_upoader_component__WEBPACK_IMPORTED_MODULE_12__["FileUpoaderComponent"], ng2_file_upload__WEBPACK_IMPORTED_MODULE_5__["FileSelectDirective"], ng2_file_upload__WEBPACK_IMPORTED_MODULE_5__["FileDropDirective"], _file_uploader2_file_uploader2_component__WEBPACK_IMPORTED_MODULE_14__["FileUploader2Component"], _user_management_user_management_component__WEBPACK_IMPORTED_MODULE_15__["UserManagementComponent"], _user_file_upload_user_file_upload_component__WEBPACK_IMPORTED_MODULE_16__["UserFileUploadComponent"]],
-      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"]],
-      providers: [_file_upload_service__WEBPACK_IMPORTED_MODULE_13__["FileUploadService"]],
-      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_7__["AppComponent"]]
-    })], AppModule);
+      declarations: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"], _nav_bar_nav_bar_component__WEBPACK_IMPORTED_MODULE_9__["NavBarComponent"], _auth_login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"], _auth_signin_signin_component__WEBPACK_IMPORTED_MODULE_11__["SigninComponent"], _home_home_component__WEBPACK_IMPORTED_MODULE_12__["HomeComponent"], _file_upoader_file_upoader_component__WEBPACK_IMPORTED_MODULE_13__["FileUpoaderComponent"], ng2_file_upload__WEBPACK_IMPORTED_MODULE_5__["FileSelectDirective"], ng2_file_upload__WEBPACK_IMPORTED_MODULE_5__["FileDropDirective"], _file_uploader2_file_uploader2_component__WEBPACK_IMPORTED_MODULE_15__["FileUploader2Component"], _user_management_user_management_component__WEBPACK_IMPORTED_MODULE_16__["UserManagementComponent"], _user_file_upload_user_file_upload_component__WEBPACK_IMPORTED_MODULE_17__["UserFileUploadComponent"], _file_import_file_import_component__WEBPACK_IMPORTED_MODULE_18__["FileImportComponent"]],
+      imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"], _app_routing_module__WEBPACK_IMPORTED_MODULE_7__["AppRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], angular_datatables__WEBPACK_IMPORTED_MODULE_6__["DataTablesModule"], ngx_socket_io__WEBPACK_IMPORTED_MODULE_19__["SocketIoModule"].forRoot(config)],
+      providers: [_file_upload_service__WEBPACK_IMPORTED_MODULE_14__["FileUploadService"]],
+      bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_8__["AppComponent"]]
+    })], AppModule); // SocketIoModule.forRoot(config)
+
     /***/
   },
 
@@ -1348,6 +1401,197 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
   },
 
   /***/
+  "./src/app/file-import/file-import.component.css":
+  /*!*******************************************************!*\
+    !*** ./src/app/file-import/file-import.component.css ***!
+    \*******************************************************/
+
+  /*! exports provided: default */
+
+  /***/
+  function srcAppFileImportFileImportComponentCss(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony default export */
+
+
+    __webpack_exports__["default"] = ".hidden {\r\n    display: none;\r\n}\r\n\r\n.modal-container {\r\n    background-color: rgb(255, 255, 255);\r\n    width: 30%;\r\n     height: 20em; \r\n    /* height: auto; */\r\n    position: fixed;\r\n    left: 35%;\r\n    top: 20%;\r\n    box-shadow: 0px 0px 5px .5px rgba(0, 0, 0, 0.493);\r\n    z-index: 100;\r\n    overflow: auto;\r\n    \r\n}\r\n\r\n.overlay {\r\n    background-color: rgba(56, 53, 53, 0.564);\r\n    position: absolute;\r\n    top: 0px;\r\n    width: 100%;\r\n    height: 100%;\r\n    z-index: 99;\r\n    \r\n}\r\n\r\n.pop-container {\r\n    position: absolute;\r\n    top:0;\r\n    width:90%;\r\n    margin-top: 15px;\r\n    text-align: center;\r\n    font-weight: 600;\r\n    \r\n}\r\n\r\n.closePop {\r\n    position: absolute;\r\n    right: 2px;\r\n    top: -3px;\r\n    font-weight: 700;\r\n    cursor: pointer;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvZmlsZS1pbXBvcnQvZmlsZS1pbXBvcnQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGFBQWE7QUFDakI7O0FBRUE7SUFDSSxvQ0FBb0M7SUFDcEMsVUFBVTtLQUNULFlBQVk7SUFDYixrQkFBa0I7SUFDbEIsZUFBZTtJQUNmLFNBQVM7SUFDVCxRQUFRO0lBQ1IsaURBQWlEO0lBQ2pELFlBQVk7SUFDWixjQUFjOztBQUVsQjs7QUFFQTtJQUNJLHlDQUF5QztJQUN6QyxrQkFBa0I7SUFDbEIsUUFBUTtJQUNSLFdBQVc7SUFDWCxZQUFZO0lBQ1osV0FBVzs7QUFFZjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixLQUFLO0lBQ0wsU0FBUztJQUNULGdCQUFnQjtJQUNoQixrQkFBa0I7SUFDbEIsZ0JBQWdCOztBQUVwQjs7QUFFQTtJQUNJLGtCQUFrQjtJQUNsQixVQUFVO0lBQ1YsU0FBUztJQUNULGdCQUFnQjtJQUNoQixlQUFlO0FBQ25CIiwiZmlsZSI6InNyYy9hcHAvZmlsZS1pbXBvcnQvZmlsZS1pbXBvcnQuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5oaWRkZW4ge1xyXG4gICAgZGlzcGxheTogbm9uZTtcclxufVxyXG5cclxuLm1vZGFsLWNvbnRhaW5lciB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMjU1LCAyNTUsIDI1NSk7XHJcbiAgICB3aWR0aDogMzAlO1xyXG4gICAgIGhlaWdodDogMjBlbTsgXHJcbiAgICAvKiBoZWlnaHQ6IGF1dG87ICovXHJcbiAgICBwb3NpdGlvbjogZml4ZWQ7XHJcbiAgICBsZWZ0OiAzNSU7XHJcbiAgICB0b3A6IDIwJTtcclxuICAgIGJveC1zaGFkb3c6IDBweCAwcHggNXB4IC41cHggcmdiYSgwLCAwLCAwLCAwLjQ5Myk7XHJcbiAgICB6LWluZGV4OiAxMDA7XHJcbiAgICBvdmVyZmxvdzogYXV0bztcclxuICAgIFxyXG59XHJcblxyXG4ub3ZlcmxheSB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDU2LCA1MywgNTMsIDAuNTY0KTtcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogMHB4O1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgICB6LWluZGV4OiA5OTtcclxuICAgIFxyXG59XHJcblxyXG4ucG9wLWNvbnRhaW5lciB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6MDtcclxuICAgIHdpZHRoOjkwJTtcclxuICAgIG1hcmdpbi10b3A6IDE1cHg7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBmb250LXdlaWdodDogNjAwO1xyXG4gICAgXHJcbn1cclxuXHJcbi5jbG9zZVBvcCB7XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICByaWdodDogMnB4O1xyXG4gICAgdG9wOiAtM3B4O1xyXG4gICAgZm9udC13ZWlnaHQ6IDcwMDtcclxuICAgIGN1cnNvcjogcG9pbnRlcjtcclxufSJdfQ== */";
+    /***/
+  },
+
+  /***/
+  "./src/app/file-import/file-import.component.ts":
+  /*!******************************************************!*\
+    !*** ./src/app/file-import/file-import.component.ts ***!
+    \******************************************************/
+
+  /*! exports provided: FileImportComponent */
+
+  /***/
+  function srcAppFileImportFileImportComponentTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "FileImportComponent", function () {
+      return FileImportComponent;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var _file_upload_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ../file-upload.service */
+    "./src/app/file-upload.service.ts");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! @angular/common/http */
+    "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var _socket_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ../socket.service */
+    "./src/app/socket.service.ts"); // import { UserFileUploadComponent } from '../user-file-upload/user-file-upload.component'
+
+
+    var FileImportComponent =
+    /*#__PURE__*/
+    function () {
+      function FileImportComponent(fileService, http, socketServices) {
+        var _this3 = this;
+
+        _classCallCheck(this, FileImportComponent);
+
+        this.fileService = fileService;
+        this.http = http;
+        this.socketServices = socketServices;
+        this.Filelist = [];
+        this.selectionList = [];
+        this.dtOptions = {};
+        this.dtTrigger1 = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.NoImport = true;
+        this.importStatus = false;
+        this.importResultArray = [];
+        this.socketServices.getMessage().subscribe(function (data) {
+          //  console.log('message from server----');
+          //  console.log(data);
+          _this3.importResultArray.push(data);
+        });
+      }
+
+      _createClass(FileImportComponent, [{
+        key: "ngOnInit",
+        value: function ngOnInit() {
+          var _this4 = this;
+
+          this.dtOptions = {
+            pagingType: 'full_numbers',
+            pageLength: 2
+          };
+          this.http.get('http://localhost:3000/api/FILE/files').subscribe(function (fileData) {
+            _this4.Filelist = fileData.files;
+
+            _this4.dtTrigger1.next();
+          });
+        }
+      }, {
+        key: "importFile",
+        value: function importFile() {
+          var _this5 = this;
+
+          //  console.log(this.selectionList);
+          this.NoImport = false;
+          this.importStatus = false;
+          this.importResultArray = [];
+          setTimeout(function () {
+            _this5.fileService.importFile(_this5.selectionList[0]).subscribe(function (data) {
+              console.log(' from import subscription');
+              _this5.importStatus = true;
+            });
+          }, 2000);
+        }
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          this.dtTrigger1.unsubscribe();
+        }
+      }, {
+        key: "addtoList",
+        value: function addtoList(evnt) {
+          var selectionStats = evnt.target.checked;
+          var valIndx = this.selectionList.indexOf('evnt.target.value');
+          var valStats = valIndx == -1; // console.log(evnt.target.value);
+
+          if (selectionStats && valStats) {
+            this.selectionList.push(evnt.target.value);
+          } else {
+            this.selectionList.splice(valIndx, 1);
+          } //  console.log(this.selectionList);
+
+
+          if (this.selectionList.length > 1) {
+            alert('please select a single file for import!');
+            evnt.target.checked = false;
+            this.selectionList.splice(valIndx, 1);
+          }
+        }
+      }, {
+        key: "removeModal",
+        value: function removeModal() {
+          // console.log('In')
+          this.NoImport = true;
+        }
+      }]);
+
+      return FileImportComponent;
+    }();
+
+    FileImportComponent.ctorParameters = function () {
+      return [{
+        type: _file_upload_service__WEBPACK_IMPORTED_MODULE_2__["FileUploadService"]
+      }, {
+        type: _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"]
+      }, {
+        type: _socket_service__WEBPACK_IMPORTED_MODULE_5__["SocketService"]
+      }];
+    };
+
+    FileImportComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+      selector: 'app-file-import',
+      template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! raw-loader!./file-import.component.html */
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/file-import/file-import.component.html")).default,
+      styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
+      /*! ./file-import.component.css */
+      "./src/app/file-import/file-import.component.css")).default]
+    })], FileImportComponent);
+    /***/
+  },
+
+  /***/
   "./src/app/file-upload.service.ts":
   /*!****************************************!*\
     !*** ./src/app/file-upload.service.ts ***!
@@ -1384,6 +1628,18 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
+    /* harmony import */
+
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
 
     var FileUploadService =
     /*#__PURE__*/
@@ -1392,6 +1648,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _classCallCheck(this, FileUploadService);
 
         this.http = http;
+        this.fileUploadIndicator = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
         this.httpOptions = {
           headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
             'Content-Type': 'Blob'
@@ -1400,9 +1657,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }
 
       _createClass(FileUploadService, [{
+        key: "uploadFile",
+        value: function uploadFile(formData) {
+          var _this6 = this;
+
+          var url = 'http://localhost:3000/yo';
+          return this.http.post(url, formData).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (res) {
+            _this6.fileUploadIndicator.next(res);
+          }));
+        }
+      }, {
+        key: "uploadIndicator",
+        value: function uploadIndicator() {
+          return this.fileUploadIndicator.asObservable();
+        }
+      }, {
         key: "downloadPDF",
         value: function downloadPDF(filename) {
           return this.http.get('http://localhost:3000/api/FILE/files/' + filename, {
+            observe: 'response',
             responseType: 'blob'
           });
         }
@@ -1410,6 +1683,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "showFileNames",
         value: function showFileNames() {
           return this.http.get('http://localhost:3000/api/Files');
+        }
+      }, {
+        key: "importFile",
+        value: function importFile(filename) {
+          return this.http.get('http://localhost:3000/api/FILE/import/' + filename);
         }
       }]);
 
@@ -1489,16 +1767,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common/http */
     "./node_modules/@angular/common/fesm2015/http.js");
+    /* harmony import */
+
+
+    var _file_upload_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ../file-upload.service */
+    "./src/app/file-upload.service.ts");
 
     var FileUploader2Component =
     /*#__PURE__*/
     function () {
       // @ViewChild('fileInput', { read: ElementRef, static: true }) private fileInput: ElementRef;
-      function FileUploader2Component(formBuilder, http) {
+      function FileUploader2Component(formBuilder, http, fileService) {
         _classCallCheck(this, FileUploader2Component);
 
         this.formBuilder = formBuilder;
         this.http = http;
+        this.fileService = fileService;
         this.mimeTye = '';
       }
 
@@ -1536,10 +1821,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           } else {
             console.log(this.form2.get('filename').value);
             var formData = new FormData();
-            formData.append('fileLoaded', this.form2.get('filename').value);
-            var url = 'http://localhost:3000/yo';
-            this.http.post(url, formData).subscribe(function (data) {
-              console.log(data);
+            formData.append('fileLoaded', this.form2.get('filename').value); // const url = 'http://localhost:3000/yo';
+            // this.http.post(url, formData)
+
+            this.fileService.uploadFile(formData).subscribe(function (data) {
+              alert('File uploaded succesfully');
             });
           }
         }
@@ -1553,6 +1839,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]
       }, {
         type: _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClient"]
+      }, {
+        type: _file_upload_service__WEBPACK_IMPORTED_MODULE_4__["FileUploadService"]
       }];
     };
 
@@ -1827,14 +2115,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "gettingUsers",
         value: function gettingUsers() {
-          var _this3 = this;
+          var _this7 = this;
 
           return this.http.get('http://localhost:3000/api/Users').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["tap"])(function (itm) {
-            _this3.userAuthenticated.next(true);
+            _this7.userAuthenticated.next(true);
 
-            _this3.userArray = itm;
+            _this7.userArray = itm;
 
-            _this3.userChangeFound.next(_toConsumableArray(_this3.userArray));
+            _this7.userChangeFound.next(_toConsumableArray(_this7.userArray));
           }));
         }
       }, {
@@ -1845,7 +2133,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "addUser",
         value: function addUser(user) {
-          var _this4 = this;
+          var _this8 = this;
 
           var usr = {
             "mailID": user.email,
@@ -1855,13 +2143,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           };
           return this.http.post('http://localhost:3000/api/Users', usr).subscribe(function (res) {
             //  console.log('User Added');
-            _this4.gettingUsers();
+            _this8.gettingUsers();
           });
         }
       }, {
         key: "editUser",
         value: function editUser(user, id) {
-          var _this5 = this;
+          var _this9 = this;
 
           var usr = {
             "mailID": user.email,
@@ -1870,16 +2158,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             "userName": user.userName
           };
           return this.http.patch("http://localhost:3000/api/CBNUsers/".concat(id), usr).subscribe(function (res) {
-            _this5.gettingUsers();
+            _this9.gettingUsers();
           });
         }
       }, {
         key: "DeleteUser",
         value: function DeleteUser(id) {
-          var _this6 = this;
+          var _this10 = this;
 
           this.http.delete("http://localhost:3000/api/CBNUsers/".concat(id)).subscribe(function (delRes) {
-            _this6.gettingUsers();
+            _this10.gettingUsers();
           });
         } // for IdevUsers
 
@@ -1898,10 +2186,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "logoutIdevUser",
         value: function logoutIdevUser() {
-          var _this7 = this;
+          var _this11 = this;
 
           return this.http.get('http://localhost:3000/api/Idev_user/logout').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (res) {
-            _this7.userAuthenticated.next(false);
+            _this11.userAuthenticated.next(false);
           }));
         }
       }]);
@@ -1999,19 +2287,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(NavBarComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this8 = this;
+          var _this12 = this;
 
           this.angService.getUserAuth().subscribe(function (auth) {
-            _this8.isUserAuthenticated = auth;
+            _this12.isUserAuthenticated = auth;
           });
         }
       }, {
         key: "userLogout",
         value: function userLogout() {
-          var _this9 = this;
+          var _this13 = this;
 
           this.angService.logoutIdevUser().subscribe(function (data) {
-            _this9.routr.navigate(['/login']);
+            _this13.routr.navigate(['/login']);
           });
         }
       }]);
@@ -2036,6 +2324,83 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       /*! ./nav-bar.component.css */
       "./src/app/nav-bar/nav-bar.component.css")).default]
     })], NavBarComponent);
+    /***/
+  },
+
+  /***/
+  "./src/app/socket.service.ts":
+  /*!***********************************!*\
+    !*** ./src/app/socket.service.ts ***!
+    \***********************************/
+
+  /*! exports provided: SocketService */
+
+  /***/
+  function srcAppSocketServiceTs(module, __webpack_exports__, __webpack_require__) {
+    "use strict";
+
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "SocketService", function () {
+      return SocketService;
+    });
+    /* harmony import */
+
+
+    var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! tslib */
+    "./node_modules/tslib/tslib.es6.js");
+    /* harmony import */
+
+
+    var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! @angular/core */
+    "./node_modules/@angular/core/fesm2015/core.js");
+    /* harmony import */
+
+
+    var ngx_socket_io__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ngx-socket-io */
+    "./node_modules/ngx-socket-io/fesm2015/ngx-socket-io.js");
+    /* harmony import */
+
+
+    var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! rxjs/operators */
+    "./node_modules/rxjs/_esm2015/operators/index.js");
+
+    var SocketService =
+    /*#__PURE__*/
+    function () {
+      function SocketService(socket) {
+        _classCallCheck(this, SocketService);
+
+        this.socket = socket;
+      }
+
+      _createClass(SocketService, [{
+        key: "getMessage",
+        value: function getMessage() {
+          return this.socket.fromEvent("import").pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (data) {
+            return data;
+          }));
+        }
+      }]);
+
+      return SocketService;
+    }();
+
+    SocketService.ctorParameters = function () {
+      return [{
+        type: ngx_socket_io__WEBPACK_IMPORTED_MODULE_2__["Socket"]
+      }];
+    };
+
+    SocketService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+      providedIn: 'root'
+    })], SocketService);
     /***/
   },
 
@@ -2102,6 +2467,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _file_upload_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! ../file-upload.service */
     "./src/app/file-upload.service.ts");
+    /* harmony import */
+
+
+    var rxjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! rxjs */
+    "./node_modules/rxjs/_esm2015/index.js");
 
     var UserFileUploadComponent =
     /*#__PURE__*/
@@ -2112,23 +2483,54 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.http = http;
         this.fileService = fileService;
         this.Filelist = [];
+        this.dtOptions = {};
+        this.dtTrigger = new rxjs__WEBPACK_IMPORTED_MODULE_4__["Subject"]();
       }
 
       _createClass(UserFileUploadComponent, [{
         key: "ngOnInit",
         value: function ngOnInit() {
-          var _this10 = this;
+          var _this14 = this;
 
-          this.http.get('http://localhost:3000/api/FILE/files').subscribe(function (fileData) {
-            _this10.Filelist = fileData.files;
+          this.dtOptions = {
+            pagingType: 'full_numbers',
+            pageLength: 2
+          };
+          this.getFiles();
+          this.fileService.uploadIndicator().subscribe(function (indRes) {
+            _this14.getFiles();
           });
         }
       }, {
         key: "downloadFile",
         value: function downloadFile(fileName) {
           this.fileService.downloadPDF(fileName).subscribe(function (fileData) {
-            var fileURL = URL.createObjectURL(fileData);
-            window.open(fileURL);
+            console.log(fileData); //  const filename = fileData.headers.get('file_name');
+
+            var fileURL = URL.createObjectURL(fileData.body); // window.open(fileURL);
+            // const filename = 'testFile'
+
+            var anchor = document.createElement("a");
+            anchor.download = fileName;
+            anchor.href = fileURL;
+            anchor.click();
+            URL.revokeObjectURL(fileURL);
+          });
+        }
+      }, {
+        key: "ngOnDestroy",
+        value: function ngOnDestroy() {
+          this.dtTrigger.unsubscribe();
+        }
+      }, {
+        key: "getFiles",
+        value: function getFiles() {
+          var _this15 = this;
+
+          this.http.get('http://localhost:3000/api/FILE/files').subscribe(function (fileData) {
+            _this15.Filelist = fileData.files;
+
+            _this15.dtTrigger.next();
           });
         }
       }]);
@@ -2224,7 +2626,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function UserManagementComponent(lbService, rtr) {
-        var _this11 = this;
+        var _this16 = this;
 
         _classCallCheck(this, UserManagementComponent);
 
@@ -2238,24 +2640,27 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.userA = '';
         this.usersArr = [];
         this.subSub = this.lbService.subscribeTouserChanges().subscribe(function (usrs) {
-          _this11.usersArr = usrs; //  console.log('Inside subscription');
+          _this16.usersArr = usrs; //  console.log('Inside subscription');
           // console.log(this.usersArr);
         });
       }
 
       _createClass(UserManagementComponent, [{
         key: "ngOnInit",
-        value: function ngOnInit() {
-          var _this12 = this;
+        value: function ngOnInit() {//  console.log('on init')
 
-          //  console.log('on init')
-          this.lbService.gettingUsers().subscribe(function (rs) {}, function (err) {
-            if (err.status == 401) {
-              alert('Please login!');
-
-              _this12.rtr.navigate(['/login']);
-            }
-          });
+          /*
+           this.lbService.gettingUsers()
+           .subscribe((rs) => {
+                   },(err)=> {
+             if(err.status==401){
+               alert('Please login!')
+               this.rtr.navigate(['/login']);
+             }
+             
+           })
+           
+           */
         }
       }, {
         key: "regUsers",
@@ -2284,15 +2689,15 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "editUser",
         value: function editUser(ID) {
-          var _this13 = this;
+          var _this17 = this;
 
           this.mode = 'edit';
           this.lbService.getuser(ID).subscribe(function (editres) {
-            _this13.userN = editres.userName;
-            _this13.userE = editres.mailID;
-            _this13.userR = editres.role;
-            _this13.userA = editres.aplicationName;
-            _this13.userI = editres.id;
+            _this17.userN = editres.userName;
+            _this17.userE = editres.mailID;
+            _this17.userR = editres.role;
+            _this17.userA = editres.aplicationName;
+            _this17.userI = editres.id;
           });
         }
       }, {
@@ -2436,6 +2841,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     module.exports = __webpack_require__(
     /*! C:\Users\Anoopkumars\Desktop\Projects\jwt\sampleMEAN\meandemo-1\src\main.ts */
     "./src/main.ts");
+    /***/
+  },
+
+  /***/
+  1:
+  /*!********************!*\
+    !*** ws (ignored) ***!
+    \********************/
+
+  /*! no static exports found */
+
+  /***/
+  function _(module, exports) {
+    /* (ignored) */
+
     /***/
   }
 }, [[0, "runtime", "vendor"]]]); //# sourceMappingURL=main-es2015.js.map
