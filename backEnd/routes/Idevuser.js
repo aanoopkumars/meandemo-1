@@ -54,10 +54,10 @@ routr.post('/login', (req, res, next) => {
 
       const token =  jwt.sign({email: user1.email, uderId: user1._id},
                               'This_Is_my_SecretKey',
-                              {expiresIn: 60000})
+                              {expiresIn: 600000})
 
        res
-       .cookie('idevCook',token, {expires: new Date(Date.now() + 90000), httpOnly: true})
+       .cookie('idevCook',token, {expires: new Date(Date.now() + 900000), httpOnly: true})
        .status(200).json({
            message: 'user logged in'
        })                     
